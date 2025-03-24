@@ -221,20 +221,22 @@ body {
 }
 
 .row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 20px;
-    flex-wrap: wrap;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-.leftcolumn {   
-    flex: 3;
-    min-width: 300px;
+.leftcolumn {
+    min-width: 250px;
+}
+
+.middlecolumn {
+    min-width: 400px;
 }
 
 .rightcolumn {
-    flex: 1;
     min-width: 250px;
 }
 
@@ -247,6 +249,7 @@ body {
     border: 1px solid var(--card-border);
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    height: fit-content;
 }
 
 .card:hover {
@@ -318,11 +321,10 @@ body {
 
 /* Social Links */
 .social-links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
     margin-top: 15px;
-    flex-wrap: wrap;
 }
 
 .social-links a {
@@ -336,6 +338,7 @@ body {
     border-radius: 12px;
     border: 1px solid var(--card-border);
     background: var(--card-bg);
+    text-align: center;
 }
 
 .social-links img {
@@ -531,23 +534,42 @@ body {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     box-shadow: var(--card-shadow);
+    margin-top: 15px;
 }
 
 .bsky-embed iframe {
     border: none;
     width: 100%;
-    max-height: 600px;
+    max-height: 800px;
     overflow-y: auto;
 }
 
 /* Responsive Design */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
     .row {
-        flex-direction: column;
+        grid-template-columns: 1fr 1.5fr;
     }
     
-    .leftcolumn, .rightcolumn {   
-        width: 100%;
+    .leftcolumn {
+        grid-column: 1;
+    }
+    
+    .middlecolumn {
+        grid-column: 2;
+    }
+    
+    .rightcolumn {
+        grid-column: 1 / -1;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
+    
+    .leftcolumn, .middlecolumn, .rightcolumn {
+        grid-column: 1;
     }
     
     .header {
@@ -558,4 +580,62 @@ body {
     .social-links {
         gap: 15px;
     }
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-category li {
+    color: var(--text-color);
+    padding: 5px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.skill-category li:last-child {
+    border-bottom: none;
+}
+
+[data-theme="dark"] .skill-category {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+[data-theme="dark"] .skill-category:hover {
+    background: var(--hover-color);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .skill-category li {
+    border-bottom-color: var(--card-border);
 } 
