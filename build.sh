@@ -15,35 +15,16 @@ echo -e "${YELLOW}Starting Docker build process...${NC}"
 echo -e "${YELLOW}Stopping and removing existing containers...${NC}"
 docker-compose down 2>/dev/null || true
 
-# Stop any existing containers
-echo -e "${YELLOW}Stopping any existing containers...${NC}"
-docker stop $(docker ps -q --filter ancestor=personal-website) 2>/dev/null || true
-docker rm $(docker ps -a -q --filter ancestor=personal-website) 2>/dev/null || true
+# Build and start the containers
+echo -e "${YELLOW}Building and starting containers...${NC}"
+docker-compose up --build -d
 
-# Remove old image if it exists
-echo -e "${YELLOW}Removing old image if it exists...${NC}"
-docker rmi personal-website 2>/dev/null || true
-
-# Build the new image
-echo -e "${YELLOW}Building new Docker image...${NC}"
-docker build -t personal-website .
-
-# Check if build was successful
+# Check if containers started successfully
 if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Docker image built successfully!${NC}"
-    
-    # Run the container
-    echo -e "${YELLOW}Starting container...${NC}"
-    docker run -d -p 8083:80 personal-website
-    
-    if [ $? -eq 0 ]; then
-        echo -e "${GREEN}Container started successfully!${NC}"
-        echo -e "${GREEN}Website is now available at http://localhost:8083${NC}"
-    else
-        echo -e "${RED}Failed to start container${NC}"
-        exit 1
-    fi
+    echo -e "${GREEN}Containers started successfully!${NC}"
+    echo -e "${GREEN}Website is now available at http://localhost:8083${NC}"
+    echo -e "${GREEN}Backend API is available at http://localhost:8084${NC}"
 else
-    echo -e "${RED}Failed to build Docker image${NC}"
+    echo -e "${RED}Failed to start containers${NC}"
     exit 1
 fi 

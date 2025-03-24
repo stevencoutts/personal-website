@@ -179,72 +179,61 @@
         setInterval(updateDateTime, 1000);
 
         // Fetch and display recent posts
-        async function fetchRecentPosts() {
+        function displayBlogPosts() {
             const postsList = document.getElementById('recent-posts');
-            try {
-                console.log('Fetching posts...');
-                const response = await fetch('/api/posts');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+            
+            // Latest blog posts from the RSS feed
+            const blogPosts = [
+                {
+                    title: 'Creating a Nginx Docker Container',
+                    link: 'https://blog.couttsnet.com/creating-a-nginx-docker-container/',
+                    date: 'Dec 9, 2024'
+                },
+                {
+                    title: 'Getting Started with Docker and Kubernetes for Beginners',
+                    link: 'https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/',
+                    date: 'Dec 9, 2024'
+                },
+                {
+                    title: 'Getting Started With Kubernetes',
+                    link: 'https://blog.couttsnet.com/getting-started-with-kubernetes/',
+                    date: 'Dec 8, 2024'
+                },
+                {
+                    title: 'What is Microsoft Azure?',
+                    link: 'https://blog.couttsnet.com/what-is-microsoft-azure/',
+                    date: 'Mar 13, 2024'
+                },
+                {
+                    title: 'Enable Wired 802.1x – Group Policy',
+                    link: 'https://blog.couttsnet.com/enable-wired-802-1x-group-policy/',
+                    date: 'Mar 28, 2022'
                 }
-                const posts = await response.json();
-                console.log('Received posts:', posts);
-                if (!posts || posts.length === 0) {
-                    throw new Error('No posts received');
-                }
-                postsList.innerHTML = posts.map(post => `
-                    <li>
-                        <a href="${post.link}" target="_blank" rel="noopener noreferrer">
-                            ${post.title}
-                            <span class="post-date">${new Date(post.date).toLocaleDateString()}</span>
-                        </a>
-                    </li>
-                `).join('');
-            } catch (error) {
-                console.error('Error fetching recent posts:', error);
-                // Fallback list of posts
-                const fallbackPosts = [
-                    {
-                        title: 'Creating an Nginx Docker Container',
-                        link: 'https://blog.couttsnet.com/creating-a-nginx-docker-container/',
-                        date: '2024-03-15'
-                    },
-                    {
-                        title: 'Getting Started with Docker and Kubernetes for Beginners',
-                        link: 'https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/',
-                        date: '2024-03-10'
-                    },
-                    {
-                        title: 'Getting Started With Kubernetes',
-                        link: 'https://blog.couttsnet.com/getting-started-with-kubernetes/',
-                        date: '2024-03-05'
-                    },
-                    {
-                        title: 'Network Automation with Python',
-                        link: 'https://blog.couttsnet.com/network-automation-with-python/',
-                        date: '2024-02-28'
-                    },
-                    {
-                        title: 'SDN Fundamentals',
-                        link: 'https://blog.couttsnet.com/sdn-fundamentals/',
-                        date: '2024-02-20'
-                    }
-                ];
-                postsList.innerHTML = fallbackPosts.map(post => `
-                    <li>
-                        <a href="${post.link}" target="_blank" rel="noopener noreferrer">
-                            ${post.title}
-                            <span class="post-date">${new Date(post.date).toLocaleDateString()}</span>
-                        </a>
-                    </li>
-                `).join('');
-            }
+            ];
+            
+            // Clear loading message
+            postsList.innerHTML = '';
+            
+            // Add each blog post to the list
+            blogPosts.forEach(post => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a href="${post.link}" target="_blank" rel="noopener noreferrer">
+                        ${post.title}
+                        <span class="post-date">${post.date}</span>
+                    </a>
+                `;
+                postsList.appendChild(li);
+            });
         }
 
-        // Fetch posts when the page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchRecentPosts();
-        });
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', displayBlogPosts);
+        
+        // Also call immediately in case DOM is already loaded
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+            displayBlogPosts();
+        }
 
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
