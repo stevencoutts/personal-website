@@ -182,11 +182,16 @@
         async function fetchRecentPosts() {
             const postsList = document.getElementById('recent-posts');
             try {
-                const response = await fetch('http://localhost:8083/api/posts');
+                console.log('Fetching posts...');
+                const response = await fetch('/api/posts');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const posts = await response.json();
+                console.log('Received posts:', posts);
+                if (!posts || posts.length === 0) {
+                    throw new Error('No posts received');
+                }
                 postsList.innerHTML = posts.map(post => `
                     <li>
                         <a href="${post.link}" target="_blank" rel="noopener noreferrer">
@@ -237,7 +242,9 @@
         }
 
         // Fetch posts when the page loads
-        fetchRecentPosts();
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchRecentPosts();
+        });
 
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
