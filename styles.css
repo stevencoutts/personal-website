@@ -1,0 +1,143 @@
+:root {
+    --primary-color: #007bff;
+    --background-color: #f1f1f1;
+    --text-color: #333;
+    --card-background: #fff;
+    --header-background: #fff;
+    --footer-background: #ddd;
+}
+
+[data-theme="dark"] {
+    --primary-color: #4dabf7;
+    --background-color: #1a1a1a;
+    --text-color: #e1e1e1;
+    --card-background: #2d2d2d;
+    --header-background: #2d2d2d;
+    --footer-background: #2d2d2d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 20px;
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: var(--header-background);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.leftcolumn {   
+    flex: 3;
+    min-width: 300px;
+}
+
+.rightcolumn {
+    flex: 1;
+    min-width: 250px;
+}
+
+.card {
+    background-color: var(--card-background);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: var(--footer-background);
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.social-links img {
+    transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 800px) {
+    .row {
+        flex-direction: column;
+    }
+    
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+    }
+    
+    .header {
+        font-size: 32px;
+        padding: 20px;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+} 
