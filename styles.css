@@ -391,6 +391,15 @@ body {
     font-weight: 400;
 }
 
+#recent-posts .error {
+    color: #e53e3e;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(229, 62, 62, 0.1);
+    border: 1px solid rgba(229, 62, 62, 0.3);
+    border-radius: 8px;
+}
+
 .loading {
     text-align: center;
     padding: 15px;

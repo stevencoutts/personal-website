@@ -52,10 +52,11 @@
                             </div>
                             <div class="certifications">
                                 <a href="https://certificates.airdata.com/ILTNoG" class="certification-item airdata-badge" aria-label="View Airdata UAV Safety Certification">
-                                    <img src="https://certificates.airdata.com/badge?i=ILTNoG&r=dLx1&t=5&m=1&size=8&c=0" 
+                                    <img src="images/airdata-badge.png" 
                                          alt="Airdata UAV|Drone Safety Verified Badge" 
                                          width="266" 
-                                         height="70">
+                                         height="70"
+                                         onerror="this.onerror=null; this.src='images/airdata-badge-fallback.png'; if(!this.src.includes('fallback')) this.alt='Airdata UAV Safety Verified';">
                                 </a>
                                 <div class="pgp-key">
                                     <a href="pgp-public-stevec-couttsnet-com.asc" target="_blank" class="pgp-link" download>
@@ -112,6 +113,9 @@
                                 load-more="true"
                             >
                             </bsky-embed>
+                            <div id="bsky-fallback" style="display: none; padding: 15px; text-align: center;">
+                                <p>Bluesky content couldn't be loaded. Please visit my <a href="https://bsky.app/profile/steven.couttsnet.com" target="_blank">Bluesky profile</a> directly.</p>
+                            </div>
                         </div>
                     </article>
                 </main>
@@ -121,36 +125,7 @@
                         <h2>Recent Posts</h2>
                         <nav aria-label="Recent blog posts">
                             <ul id="recent-posts">
-                                <li>
-                                    <a href="https://blog.couttsnet.com/creating-a-nginx-docker-container/" target="_blank" rel="noopener noreferrer">
-                                        Creating a Nginx Docker Container
-                                        <span class="post-date">Dec 9, 2024</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/" target="_blank" rel="noopener noreferrer">
-                                        Getting Started with Docker and Kubernetes for Beginners
-                                        <span class="post-date">Dec 9, 2024</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://blog.couttsnet.com/getting-started-with-kubernetes/" target="_blank" rel="noopener noreferrer">
-                                        Getting Started With Kubernetes
-                                        <span class="post-date">Dec 8, 2024</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://blog.couttsnet.com/what-is-microsoft-azure/" target="_blank" rel="noopener noreferrer">
-                                        What is Microsoft Azure?
-                                        <span class="post-date">Mar 13, 2024</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://blog.couttsnet.com/enable-wired-802-1x-group-policy/" target="_blank" rel="noopener noreferrer">
-                                        Enable Wired 802.1x – Group Policy
-                                        <span class="post-date">Mar 28, 2022</span>
-                                    </a>
-                                </li>
+                                <li class="loading">Loading posts...</li>
                             </ul>
                         </nav>
                     </section>
@@ -203,15 +178,103 @@
             themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌓';
         });
 
-        // Update datetime
-        function updateDateTime() {
-            const now = new Date();
-            const datetime = now.toLocaleString();
-            document.getElementById('main-section-1-datetime').textContent = datetime;
+        // Fetch and display blog posts dynamically
+        async function fetchAndDisplayBlogPosts() {
+            const postsList = document.getElementById('recent-posts');
+            
+            // Define fallback posts in case the fetch fails
+            const fallbackPosts = [
+                {
+                    title: 'Creating a Nginx Docker Container',
+                    link: 'https://blog.couttsnet.com/creating-a-nginx-docker-container/',
+                    date: 'Dec 9, 2024'
+                },
+                {
+                    title: 'Getting Started with Docker and Kubernetes for Beginners',
+                    link: 'https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/',
+                    date: 'Dec 9, 2024'
+                },
+                {
+                    title: 'Getting Started With Kubernetes',
+                    link: 'https://blog.couttsnet.com/getting-started-with-kubernetes/',
+                    date: 'Dec 8, 2024'
+                },
+                {
+                    title: 'What is Microsoft Azure?',
+                    link: 'https://blog.couttsnet.com/what-is-microsoft-azure/',
+                    date: 'Mar 13, 2024'
+                },
+                {
+                    title: 'Enable Wired 802.1x – Group Policy',
+                    link: 'https://blog.couttsnet.com/enable-wired-802-1x-group-policy/',
+                    date: 'Mar 28, 2022'
+                }
+            ];
+            
+            try {
+                // Use a public RSS to JSON converter service that provides CORS headers
+                const rssFeedUrl = 'https://blog.couttsnet.com/feed/';
+                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`;
+                
+                const response = await fetch(proxyUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.status !== 'ok' || !data.items || data.items.length === 0) {
+                    throw new Error('No posts found in RSS feed');
+                }
+                
+                // Extract post information (limit to 5 posts)
+                const posts = data.items.slice(0, 5).map(item => {
+                    const pubDate = new Date(item.pubDate);
+                    return {
+                        title: item.title,
+                        link: item.link,
+                        date: pubDate.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        })
+                    };
+                });
+                
+                // Display the posts
+                displayPosts(posts);
+            } catch (error) {
+                // Use fallback posts if fetch fails
+                displayPosts(fallbackPosts);
+            }
         }
         
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
+        // Display posts in the DOM
+        function displayPosts(posts) {
+            const postsList = document.getElementById('recent-posts');
+            
+            // Clear the loading message
+            postsList.innerHTML = '';
+            
+            // Add each post to the list
+            posts.forEach(post => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a href="${post.link}" target="_blank" rel="noopener noreferrer">
+                        ${post.title}
+                        <span class="post-date">${post.date}</span>
+                    </a>
+                `;
+                postsList.appendChild(li);
+            });
+        }
+
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayBlogPosts);
+        
+        // Also set up a refresh interval (every 30 minutes)
+        setInterval(fetchAndDisplayBlogPosts, 30 * 60 * 1000);
 
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
@@ -225,6 +288,24 @@
                     });
             });
         }
+
+        // Check if Bluesky content loads properly
+        document.addEventListener('DOMContentLoaded', () => {
+            const bskyEmbed = document.querySelector('bsky-embed');
+            const bskyFallback = document.getElementById('bsky-fallback');
+            
+            // Check if the bsky-embed is empty after a timeout
+            setTimeout(() => {
+                const bskyEmbedContent = bskyEmbed.shadowRoot 
+                    ? bskyEmbed.shadowRoot.querySelector('.feed-container')
+                    : null;
+                
+                // If no content is loaded, show the fallback
+                if (!bskyEmbedContent || !bskyEmbedContent.children || bskyEmbedContent.children.length === 0) {
+                    bskyFallback.style.display = 'block';
+                }
+            }, 5000); // Check after 5 seconds
+        });
     </script>
 </body>
 </html>
