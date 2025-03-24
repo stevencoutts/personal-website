@@ -10,6 +10,7 @@ A static personal website served using Nginx in a Docker container.
 - Proper caching headers for static assets
 - Security headers implementation
 - Responsive design
+- Automated build script
 
 ## Prerequisites
 
@@ -18,19 +19,34 @@ A static personal website served using Nginx in a Docker container.
 
 ## Getting Started
 
-### Building the Docker Image
+### Using the Build Script (Recommended)
+
+The easiest way to build and run the website is using the provided build script:
 
 ```bash
-docker build -t personal-website .
+./build.sh
 ```
 
-### Running the Container
-
-```bash
-docker run -d -p 8080:80 personal-website
-```
+This script will:
+1. Stop any existing containers
+2. Remove old images
+3. Build a new Docker image
+4. Start the container
+5. Provide status messages throughout the process
 
 The website will be available at `http://localhost:8080`
+
+### Manual Build (Alternative)
+
+If you prefer to build manually, you can use these commands:
+
+```bash
+# Build the Docker image
+docker build -t personal-website .
+
+# Run the container
+docker run -d -p 8080:80 personal-website
+```
 
 ### Stopping the Container
 
@@ -46,6 +62,7 @@ docker stop $(docker ps -q --filter ancestor=personal-website)
 ├── images/              # Static images directory
 ├── nginx.conf          # Nginx configuration
 ├── Dockerfile          # Docker configuration
+├── build.sh           # Build automation script
 └── .dockerignore      # Docker ignore file
 ```
 
@@ -70,8 +87,8 @@ The `nginx.conf` file includes:
 
 To make changes to the website:
 1. Modify the HTML/CSS files as needed
-2. Rebuild the Docker image
-3. Restart the container
+2. Run `./build.sh` to rebuild and redeploy
+3. Or manually rebuild using the Docker commands
 
 ## License
 
