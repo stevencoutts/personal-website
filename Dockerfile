@@ -5,10 +5,7 @@ FROM nginx:alpine
 RUN apk add --update nodejs npm
 
 # Copy the website files to Nginx's default serving directory
-COPY index.html /usr/share/nginx/html/
-COPY styles.css /usr/share/nginx/html/
-COPY images/ /usr/share/nginx/html/images/
-COPY sw.js /usr/share/nginx/html/
+COPY . /usr/share/nginx/html/
 
 # Copy a custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
@@ -21,7 +18,7 @@ WORKDIR /app/backend
 RUN npm install
 
 # Expose ports
-EXPOSE 80 3000
+EXPOSE 80 8083
 
 # Start both Nginx and the backend service
 COPY start.sh /start.sh

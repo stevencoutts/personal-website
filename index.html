@@ -180,7 +180,7 @@
         // Fetch and display recent posts
         async function fetchRecentPosts() {
             try {
-                const response = await fetch('/api/posts');
+                const response = await fetch('http://localhost:8083/api/posts');
                 const posts = await response.json();
                 const postsList = document.getElementById('recent-posts');
                 postsList.innerHTML = posts.map(post => `
