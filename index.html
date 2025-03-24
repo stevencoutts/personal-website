@@ -294,17 +294,36 @@
             const bskyEmbed = document.querySelector('bsky-embed');
             const bskyFallback = document.getElementById('bsky-fallback');
             
-            // Check if the bsky-embed is empty after a timeout
+            // More reliable check using MutationObserver to detect changes to the embed
+            let hasContent = false;
+            
+            // Watch for changes in the document that might indicate the embed loaded
+            const observer = new MutationObserver((mutations) => {
+                // Check if there are any visible feed posts in the embed
+                const bskyContainer = document.querySelector('.bsky-embed');
+                if (bskyContainer && bskyContainer.querySelector('iframe') && 
+                    !bskyContainer.querySelector('iframe').classList.contains('loading')) {
+                    hasContent = true;
+                }
+            });
+            
+            // Start observing changes to the document
+            observer.observe(document.body, { 
+                childList: true, 
+                subtree: true,
+                attributes: true
+            });
+            
+            // If no content after timeout, show fallback
             setTimeout(() => {
-                const bskyEmbedContent = bskyEmbed.shadowRoot 
-                    ? bskyEmbed.shadowRoot.querySelector('.feed-container')
-                    : null;
+                // Stop observing
+                observer.disconnect();
                 
-                // If no content is loaded, show the fallback
-                if (!bskyEmbedContent || !bskyEmbedContent.children || bskyEmbedContent.children.length === 0) {
+                // If no content was detected, show fallback
+                if (!hasContent) {
                     bskyFallback.style.display = 'block';
                 }
-            }, 5000); // Check after 5 seconds
+            }, 8000); // Give more time to load - 8 seconds
         });
     </script>
 </body>
