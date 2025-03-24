@@ -119,7 +119,36 @@
                 <h2>Recent Posts</h2>
                 <nav aria-label="Recent blog posts">
                     <ul id="recent-posts">
-                        <li class="loading">Loading posts...</li>
+                        <li>
+                            <a href="https://blog.couttsnet.com/creating-a-nginx-docker-container/" target="_blank" rel="noopener noreferrer">
+                                Creating a Nginx Docker Container
+                                <span class="post-date">Dec 9, 2024</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/" target="_blank" rel="noopener noreferrer">
+                                Getting Started with Docker and Kubernetes for Beginners
+                                <span class="post-date">Dec 9, 2024</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://blog.couttsnet.com/getting-started-with-kubernetes/" target="_blank" rel="noopener noreferrer">
+                                Getting Started With Kubernetes
+                                <span class="post-date">Dec 8, 2024</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://blog.couttsnet.com/what-is-microsoft-azure/" target="_blank" rel="noopener noreferrer">
+                                What is Microsoft Azure?
+                                <span class="post-date">Mar 13, 2024</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://blog.couttsnet.com/enable-wired-802-1x-group-policy/" target="_blank" rel="noopener noreferrer">
+                                Enable Wired 802.1x – Group Policy
+                                <span class="post-date">Mar 28, 2022</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </section>
@@ -177,63 +206,6 @@
         
         updateDateTime();
         setInterval(updateDateTime, 1000);
-
-        // Fetch and display recent posts
-        function displayBlogPosts() {
-            const postsList = document.getElementById('recent-posts');
-            
-            // Latest blog posts from the RSS feed
-            const blogPosts = [
-                {
-                    title: 'Creating a Nginx Docker Container',
-                    link: 'https://blog.couttsnet.com/creating-a-nginx-docker-container/',
-                    date: 'Dec 9, 2024'
-                },
-                {
-                    title: 'Getting Started with Docker and Kubernetes for Beginners',
-                    link: 'https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/',
-                    date: 'Dec 9, 2024'
-                },
-                {
-                    title: 'Getting Started With Kubernetes',
-                    link: 'https://blog.couttsnet.com/getting-started-with-kubernetes/',
-                    date: 'Dec 8, 2024'
-                },
-                {
-                    title: 'What is Microsoft Azure?',
-                    link: 'https://blog.couttsnet.com/what-is-microsoft-azure/',
-                    date: 'Mar 13, 2024'
-                },
-                {
-                    title: 'Enable Wired 802.1x – Group Policy',
-                    link: 'https://blog.couttsnet.com/enable-wired-802-1x-group-policy/',
-                    date: 'Mar 28, 2022'
-                }
-            ];
-            
-            // Clear loading message
-            postsList.innerHTML = '';
-            
-            // Add each blog post to the list
-            blogPosts.forEach(post => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <a href="${post.link}" target="_blank" rel="noopener noreferrer">
-                        ${post.title}
-                        <span class="post-date">${post.date}</span>
-                    </a>
-                `;
-                postsList.appendChild(li);
-            });
-        }
-
-        // Call the function when the page loads
-        document.addEventListener('DOMContentLoaded', displayBlogPosts);
-        
-        // Also call immediately in case DOM is already loaded
-        if (document.readyState === 'interactive' || document.readyState === 'complete') {
-            displayBlogPosts();
-        }
 
         // Service Worker Registration
         if ('serviceWorker' in navigator) {

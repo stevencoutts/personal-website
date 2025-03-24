@@ -225,7 +225,6 @@ body {
     padding: 20px;
     box-sizing: border-box;
     margin: 0;
-    position: relative;
 }
 
 .header {
@@ -311,13 +310,13 @@ body {
 }
 
 .row {
-    flex: 1 0 auto;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto 20px auto;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto 40px auto;
+    flex: 1;
+    width: 100%;
 }
 
 .leftcolumn {
@@ -353,8 +352,7 @@ body {
 .footer {
     width: calc(100% - 40px);
     max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     text-align: center;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -363,8 +361,6 @@ body {
     border-radius: 12px;
     position: relative;
     z-index: 1;
-    flex-shrink: 0;
-    margin-top: auto;
 }
 
 .footer p {
