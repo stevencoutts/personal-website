@@ -34,11 +34,11 @@ if [ $? -eq 0 ]; then
     
     # Run the container
     echo -e "${YELLOW}Starting container...${NC}"
-    docker run -d -p 8080:80 personal-website
+    docker run -d -p 8083:80 personal-website
     
     if [ $? -eq 0 ]; then
         echo -e "${GREEN}Container started successfully!${NC}"
-        echo -e "${GREEN}Website is now available at http://localhost:8080${NC}"
+        echo -e "${GREEN}Website is now available at http://localhost:8083${NC}"
     else
         echo -e "${RED}Failed to start container${NC}"
         exit 1
