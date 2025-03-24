@@ -35,147 +35,153 @@
         🌓
     </button>
 
-    <div class="header">
-        <h1>Steven Coutts</h1>
-    </div>
+    <div class="page-container">
+        <div class="content-wrapper">
+            <div class="header">
+                <h1>Steven Coutts</h1>
+            </div>
 
-    <div class="row">
-        <aside class="leftcolumn">
-            <section class="card">
-                <div class="about-me">
-                    <h2>About Me</h2>
-                    <p class="ccie-number">CCIE No. 51771</p>
-                    <div class="ccie-badge">
-                        <img src="images/CCIE_Enterprise_med.gif" alt="CCIE Certification Badge">
-                    </div>
-                    <div class="certifications">
-                        <a href="https://certificates.airdata.com/ILTNoG" class="certification-item airdata-badge" aria-label="View Airdata UAV Safety Certification">
-                            <img src="https://certificates.airdata.com/badge?i=ILTNoG&r=dLx1&t=5&m=1&size=8&c=0" 
-                                 alt="Airdata UAV|Drone Safety Verified Badge" 
-                                 width="266" 
-                                 height="70">
-                        </a>
-                        <div class="pgp-key">
-                            <a href="https://keys.openpgp.org/search?q=steven@coutts.net" target="_blank" class="pgp-link">
-                                <img src="images/pgp-icon.svg" alt="PGP Key" class="pgp-icon">
-                            </a>
+            <div class="row">
+                <aside class="leftcolumn">
+                    <section class="card">
+                        <div class="about-me">
+                            <h2>About Me</h2>
+                            <p class="ccie-number">CCIE No. 51771</p>
+                            <div class="ccie-badge">
+                                <img src="images/CCIE_Enterprise_med.gif" alt="CCIE Certification Badge">
+                            </div>
+                            <div class="certifications">
+                                <a href="https://certificates.airdata.com/ILTNoG" class="certification-item airdata-badge" aria-label="View Airdata UAV Safety Certification">
+                                    <img src="https://certificates.airdata.com/badge?i=ILTNoG&r=dLx1&t=5&m=1&size=8&c=0" 
+                                         alt="Airdata UAV|Drone Safety Verified Badge" 
+                                         width="266" 
+                                         height="70">
+                                </a>
+                                <div class="pgp-key">
+                                    <a href="https://keys.openpgp.org/search?q=steven@coutts.net" target="_blank" class="pgp-link">
+                                        <img src="images/pgp-icon.svg" alt="PGP Key" class="pgp-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="card">
+                        <h2>Skills & Expertise</h2>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h3>Networking</h3>
+                                <ul>
+                                    <li>CCIE Enterprise Infrastructure</li>
+                                    <li>Network Design & Architecture</li>
+                                    <li>Network Security</li>
+                                    <li>SDN & Automation</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3>Programming</h3>
+                                <ul>
+                                    <li>Python</li>
+                                    <li>Network Automation</li>
+                                    <li>Shell Scripting</li>
+                                    <li>Git</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3>Cloud & DevOps</h3>
+                                <ul>
+                                    <li>AWS</li>
+                                    <li>Docker</li>
+                                    <li>CI/CD</li>
+                                    <li>Infrastructure as Code</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </aside>
 
-            <div class="card">
-                <h2>Skills & Expertise</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Networking</h3>
-                        <ul>
-                            <li>CCIE Enterprise Infrastructure</li>
-                            <li>Network Design & Architecture</li>
-                            <li>Network Security</li>
-                            <li>SDN & Automation</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Programming</h3>
-                        <ul>
-                            <li>Python</li>
-                            <li>Network Automation</li>
-                            <li>Shell Scripting</li>
-                            <li>Git</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Cloud & DevOps</h3>
-                        <ul>
-                            <li>AWS</li>
-                            <li>Docker</li>
-                            <li>CI/CD</li>
-                            <li>Infrastructure as Code</li>
-                        </ul>
-                    </div>
-                </div>
+                <main class="middlecolumn">
+                    <article class="card">
+                        <h2>Bluesky <a href="https://bsky.app/profile/steven.couttsnet.com" aria-label="View Steven's Bluesky profile">@steven.couttsnet.com</a></h2>
+                        <div class="bsky-embed">
+                            <bsky-embed
+                                username="steven.couttsnet.com"
+                                limit="5"
+                                link-target="_blank"
+                                link-image="true"
+                                load-more="true"
+                            >
+                            </bsky-embed>
+                        </div>
+                    </article>
+                </main>
+
+                <aside class="rightcolumn">
+                    <section class="card">
+                        <h2>Recent Posts</h2>
+                        <nav aria-label="Recent blog posts">
+                            <ul id="recent-posts">
+                                <li>
+                                    <a href="https://blog.couttsnet.com/creating-a-nginx-docker-container/" target="_blank" rel="noopener noreferrer">
+                                        Creating a Nginx Docker Container
+                                        <span class="post-date">Dec 9, 2024</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/" target="_blank" rel="noopener noreferrer">
+                                        Getting Started with Docker and Kubernetes for Beginners
+                                        <span class="post-date">Dec 9, 2024</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.couttsnet.com/getting-started-with-kubernetes/" target="_blank" rel="noopener noreferrer">
+                                        Getting Started With Kubernetes
+                                        <span class="post-date">Dec 8, 2024</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.couttsnet.com/what-is-microsoft-azure/" target="_blank" rel="noopener noreferrer">
+                                        What is Microsoft Azure?
+                                        <span class="post-date">Mar 13, 2024</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.couttsnet.com/enable-wired-802-1x-group-policy/" target="_blank" rel="noopener noreferrer">
+                                        Enable Wired 802.1x – Group Policy
+                                        <span class="post-date">Mar 28, 2022</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </section>
+
+                    <section class="card">
+                        <h2>Connect</h2>
+                        <div class="social-links">
+                            <a href="https://bsky.app/profile/steven.couttsnet.com" aria-label="Follow on Bluesky">
+                                <img src="images/bluesky-icon.webp" alt="Bluesky">
+                                <span>Bluesky</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/stevencoutts/" aria-label="Connect on LinkedIn">
+                                <img src="images/linkedin-icon.jpg" alt="LinkedIn">
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/stevencoutts" aria-label="Follow on GitHub">
+                                <img src="images/github-icon.png" alt="GitHub">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </section>
+                </aside>
             </div>
-        </aside>
+        </div>
 
-        <main class="middlecolumn">
-            <article class="card">
-                <h2>Bluesky <a href="https://bsky.app/profile/steven.couttsnet.com" aria-label="View Steven's Bluesky profile">@steven.couttsnet.com</a></h2>
-                <div class="bsky-embed">
-                    <bsky-embed
-                        username="steven.couttsnet.com"
-                        limit="5"
-                        link-target="_blank"
-                        link-image="true"
-                        load-more="true"
-                    >
-                    </bsky-embed>
-                </div>
-            </article>
-        </main>
-
-        <aside class="rightcolumn">
-            <section class="card">
-                <h2>Recent Posts</h2>
-                <nav aria-label="Recent blog posts">
-                    <ul id="recent-posts">
-                        <li>
-                            <a href="https://blog.couttsnet.com/creating-a-nginx-docker-container/" target="_blank" rel="noopener noreferrer">
-                                Creating a Nginx Docker Container
-                                <span class="post-date">Dec 9, 2024</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/" target="_blank" rel="noopener noreferrer">
-                                Getting Started with Docker and Kubernetes for Beginners
-                                <span class="post-date">Dec 9, 2024</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://blog.couttsnet.com/getting-started-with-kubernetes/" target="_blank" rel="noopener noreferrer">
-                                Getting Started With Kubernetes
-                                <span class="post-date">Dec 8, 2024</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://blog.couttsnet.com/what-is-microsoft-azure/" target="_blank" rel="noopener noreferrer">
-                                What is Microsoft Azure?
-                                <span class="post-date">Mar 13, 2024</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://blog.couttsnet.com/enable-wired-802-1x-group-policy/" target="_blank" rel="noopener noreferrer">
-                                Enable Wired 802.1x – Group Policy
-                                <span class="post-date">Mar 28, 2022</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </section>
-
-            <section class="card">
-                <h2>Connect</h2>
-                <div class="social-links">
-                    <a href="https://bsky.app/profile/steven.couttsnet.com" aria-label="Follow on Bluesky">
-                        <img src="images/bluesky-icon.webp" alt="Bluesky">
-                        <span>Bluesky</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/stevencoutts/" aria-label="Connect on LinkedIn">
-                        <img src="images/linkedin-icon.jpg" alt="LinkedIn">
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/stevencoutts" aria-label="Follow on GitHub">
-                        <img src="images/github-icon.png" alt="GitHub">
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </section>
-        </aside>
+        <div class="footer-wrapper">
+            <footer class="footer">
+                <p>© 2024 Steven Coutts. All rights reserved. | This project is licensed under <a href="https://unlicense.org" target="_blank">The Unlicense</a> | Made with ❤️ using modern web technologies</p>
+            </footer>
+        </div>
     </div>
-
-    <footer class="footer">
-        <p>© 2024 Steven Coutts. All rights reserved. | This project is licensed under <a href="https://unlicense.org" target="_blank">The Unlicense</a> | Made with ❤️ using modern web technologies</p>
-    </footer>
 
     <script>
         // Theme toggle functionality
