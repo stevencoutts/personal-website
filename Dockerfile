@@ -1,14 +1,30 @@
 # Use the official Nginx image as the base
 FROM nginx:alpine
 
-# Copy the website files to Nginx's default serving directory
-COPY . /usr/share/nginx/html/
+# Install Node.js and npm
+RUN apk add --update nodejs npm
 
-# Copy a custom Nginx configuration (optional, but recommended)
+# Copy the website files to Nginx's default serving directory
+COPY index.html /usr/share/nginx/html/
+COPY styles.css /usr/share/nginx/html/
+COPY images/ /usr/share/nginx/html/images/
+COPY sw.js /usr/share/nginx/html/
+
+# Copy a custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80
-EXPOSE 80
+# Copy backend files
+COPY backend /app/backend
+WORKDIR /app/backend
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"] 
+# Install backend dependencies
+RUN npm install
+
+# Expose ports
+EXPOSE 80 3000
+
+# Start both Nginx and the backend service
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"] 

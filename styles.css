@@ -209,16 +209,38 @@ body {
 
 .card ul li {
     margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.card ul li:hover {
+    background-color: var(--hover-color);
 }
 
 .card ul li a {
     color: var(--text-color);
     text-decoration: none;
-    transition: color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 .card ul li a:hover {
     color: var(--primary-color);
+}
+
+.post-date {
+    font-size: 0.9em;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.8;
 }
 
 /* Responsive Design */
@@ -239,21 +261,6 @@ body {
     .social-links {
         gap: 15px;
     }
-}
-
-/* Loading Animation */
-.loading {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255,255,255,.3);
-    border-radius: 50%;
-    border-top-color: var(--primary-color);
-    animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
 }
 
 /* About Me Section */
