@@ -540,19 +540,45 @@ body {
 .about-me .certifications {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    gap: 20px;
     margin-top: 20px;
 }
 
 .about-me .certification-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
     padding: 15px;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 12px;
     transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.about-me .certification-item.airdata-badge {
+    padding: 10px;
+    max-width: 266px;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.about-me .certification-item.airdata-badge:hover {
+    transform: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.about-me .certification-item.airdata-badge img {
+    width: 100%;
+    height: auto;
+    max-width: 266px;
+    margin: 0 auto;
+    display: block;
 }
 
 .about-me .certification-item:hover {
@@ -560,6 +586,18 @@ body {
     background: var(--hover-color);
     border-color: var(--primary-color);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.about-me .ccie-badge {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.about-me .certification-item:hover .ccie-badge,
+.about-me .certification-item:hover img {
+    transform: scale(1.05);
 }
 
 .about-me .certification-item img {
