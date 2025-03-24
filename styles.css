@@ -326,43 +326,45 @@ body {
 }
 
 .footer {
-    padding: 20px;
     text-align: center;
+    padding: 15px;
     background: var(--card-bg);
-    margin-top: 20px;
-    border-radius: 12px;
+    border-top: 1px solid var(--card-border);
+    margin-top: 40px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer p {
+    margin: 0;
     color: var(--text-color);
-    border: 1px solid var(--card-border);
-    box-shadow: var(--card-shadow);
+    font-size: 0.9em;
+    line-height: 1.5;
 }
 
-.footer-links {
-    margin-top: 15px;
-}
-
-.footer-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-color);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.footer-links a:hover {
+.footer a {
     color: var(--primary-color);
-    transform: translateY(-2px);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.footer-links img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    transition: all 0.3s ease;
+.footer a:hover {
+    color: var(--secondary-color);
 }
 
-.footer-links a:hover img {
-    transform: scale(1.1) rotate(5deg);
+[data-theme="dark"] .footer {
+    background: var(--card-bg);
+    border-top: 1px solid var(--card-border);
+}
+
+[data-theme="dark"] .footer a {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .footer a:hover {
+    color: var(--secondary-color);
 }
 
 /* Theme Toggle Button */
