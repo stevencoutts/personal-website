@@ -128,7 +128,15 @@ personal-website/
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under The Unlicense - see the [LICENSE](LICENSE) file for details.
+
+The Unlicense is a template for disclaiming copyright monopoly interest in software you've written; in other words, it is a template for dedicating your software to the public domain. It is a more permissive license than the MIT license, as it disclaims all copyright and related rights.
+
+## Acknowledgments
+
+- Thanks to all contributors and supporters
+- Inspired by modern web design principles
+- Built with modern web technologies
 
 ## Contact
 
