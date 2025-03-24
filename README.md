@@ -1,121 +1,137 @@
 # Personal Website
 
-A static personal website served using Nginx in a Docker container.
+A modern, responsive personal website built with HTML, CSS, and JavaScript. Features include a dynamic blog post feed, Bluesky integration, and a beautiful dark/light theme.
 
 ## Features
 
-- Lightweight Nginx Alpine-based container
-- Optimized static file serving
-- Gzip compression for better performance
-- Proper caching headers for static assets
-- Security headers implementation
-- Responsive design
-- Automated build script
-- Development mode with auto-rebuild
+- 🎨 Modern, responsive design
+- 🌓 Dark/Light theme toggle with system preference detection
+- 📱 Mobile-friendly layout
+- 🔄 Dynamic blog post feed from RSS
+- 🐦 Bluesky integration
+- ⚡ Service Worker for offline capabilities
+- 🔒 Security headers and best practices
+- 🚀 Docker deployment ready
+- 🔍 SEO optimized
+- ♿ Accessibility focused
+
+## Tech Stack
+
+- HTML5
+- CSS3 (with CSS Variables for theming)
+- JavaScript (Vanilla)
+- Node.js (for backend RSS feed)
+- Nginx (web server)
+- Docker (containerization)
 
 ## Prerequisites
 
-- Docker installed on your system
-- Git (optional, for cloning the repository)
-- Homebrew (for macOS users, required for development mode)
+- Docker and Docker Compose
+- Node.js (for local development)
 
-## Getting Started
+## Local Development
 
-### Using the Build Script (Recommended)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/stevencoutts/personal-website.git
+   cd personal-website
+   ```
 
-The easiest way to build and run the website is using the provided build script:
+2. Install backend dependencies:
+   ```bash
+   cd backend
+   npm install
+   ```
 
-```bash
-./build.sh
-```
+3. Start the backend server:
+   ```bash
+   node server.js
+   ```
 
-This script will:
-1. Stop any existing containers
-2. Remove old images
-3. Build a new Docker image
-4. Start the container
-5. Provide status messages throughout the process
+4. Open `index.html` in your browser or use a local server.
 
-The website will be available at `http://localhost:8080`
+## Docker Deployment
 
-### Development Mode with Auto-Rebuild
+1. Build the Docker image:
+   ```bash
+   docker build -t personal-website .
+   ```
 
-For development, you can use the watch script that automatically rebuilds the container when files change:
+2. Run the container:
+   ```bash
+   docker run -d -p 80:80 -p 8083:8083 personal-website
+   ```
 
-```bash
-./watch.sh
-```
-
-This script will:
-1. Check for and install required dependencies (fswatch)
-2. Perform an initial build
-3. Monitor the following files for changes:
-   - website.html
-   - styles.css
-   - sw.js
-   - images/
-4. Automatically rebuild and restart the container when changes are detected
-
-Press Ctrl+C to stop the watch script.
-
-### Manual Build (Alternative)
-
-If you prefer to build manually, you can use these commands:
-
-```bash
-# Build the Docker image
-docker build -t personal-website .
-
-# Run the container
-docker run -d -p 8080:80 personal-website
-```
-
-### Stopping the Container
-
-```bash
-docker stop $(docker ps -q --filter ancestor=personal-website)
-```
+The website will be available at `http://localhost` and the backend API at `http://localhost:8083`.
 
 ## Project Structure
 
 ```
-.
-├── website.html          # Main website file
-├── styles.css           # Website styles
-├── sw.js               # Service worker for offline support
-├── images/             # Static images directory
-├── nginx.conf          # Nginx configuration
-├── Dockerfile          # Docker configuration
-├── build.sh           # Build automation script
-├── watch.sh           # Development mode script
-└── .dockerignore      # Docker ignore file
+personal-website/
+├── backend/
+│   ├── server.js
+│   └── package.json
+├── images/
+│   ├── CCIE_Enterprise_med.gif
+│   ├── bluesky-icon.webp
+│   ├── favicon.png
+│   ├── github-icon.png
+│   ├── linkedin-icon.jpg
+│   └── pgp-desktop-logo.avif
+├── index.html
+├── styles.css
+├── sw.js
+├── Dockerfile
+├── nginx.conf
+├── start.sh
+└── README.md
 ```
 
-## Technical Details
+## Features in Detail
 
-### Nginx Configuration
+### Theme System
+- Automatic dark/light mode detection
+- Manual theme toggle
+- Persistent theme preference
+- Smooth transitions
 
-The `nginx.conf` file includes:
-- Gzip compression for text-based files
-- Cache headers for static assets (30-day expiration)
-- Security headers for enhanced protection
-- Content Security Policy for secure resource loading
+### Blog Integration
+- Fetches latest posts from RSS feed
+- Displays post titles and dates
+- Error handling and loading states
 
-### Docker Configuration
+### Bluesky Integration
+- Embedded Bluesky feed
+- Responsive layout
+- Link handling
 
-- Uses the official Nginx Alpine image for minimal size
-- Exposes port 80 for HTTP traffic
-- Copies website files to Nginx's default serving directory
-- Implements custom Nginx configuration
+### Performance
+- Service Worker for offline access
+- Resource preloading
+- Optimized asset loading
+- Gzip compression
 
-## Development
+### Security
+- Content Security Policy
+- XSS Protection
+- Frame Options
+- Referrer Policy
+- CORS configuration
 
-To make changes to the website:
-1. Modify the HTML/CSS files as needed
-2. Run `./watch.sh` for automatic rebuilds during development
-3. Or use `./build.sh` for manual rebuilds
-4. Or manually rebuild using the Docker commands
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-All rights reserved. 
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Steven Coutts - [@steven.couttsnet.com](https://bsky.app/profile/steven.couttsnet.com)
+
+Project Link: [https://github.com/stevencoutts/personal-website](https://github.com/stevencoutts/personal-website) 
