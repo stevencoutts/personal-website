@@ -58,21 +58,24 @@
 
         <aside class="rightcolumn">
             <section class="card">
-                <h2>About Me</h2>
-                <p>CCIE No. 51771</p>
-                <img src="images/CCIE_Enterprise_med.gif" alt="CCIE Certification Badge" width="100" height="100">
-                <div class="social-links">
-                    <a href="https://stevec.couttsnet.com/pgp-public-stevec-couttsnet-com.asc" aria-label="Download PGP Public Key">
-                        <img src="images/pgp-desktop-logo.avif" alt="PGP Public Key">
-                        <span>PGP Key</span>
-                    </a>
-                    <a href="https://certificates.airdata.com/ILTNoG" aria-label="View Airdata UAV Safety Certification">
-                        <img src="https://certificates.airdata.com/badge?i=ILTNoG&r=dLx1&t=5&m=1&size=8&c=0" 
-                             alt="Airdata UAV|Drone Safety Verified Badge" 
-                             width="266" 
-                             height="70">
-                        <span>Safety Certified</span>
-                    </a>
+                <div class="about-me">
+                    <h2>About Me</h2>
+                    <p class="ccie-number">CCIE No. 51771</p>
+                    <div class="ccie-badge">
+                        <img src="images/CCIE_Enterprise_med.gif" alt="CCIE Certification Badge">
+                    </div>
+                    <div class="certifications">
+                        <a href="https://stevec.couttsnet.com/pgp-public-stevec-couttsnet-com.asc" class="certification-item" aria-label="Download PGP Public Key">
+                            <img src="images/pgp-desktop-logo.avif" alt="PGP Public Key">
+                            <span>PGP Public Key</span>
+                        </a>
+                        <a href="https://certificates.airdata.com/ILTNoG" class="certification-item airdata-badge" aria-label="View Airdata UAV Safety Certification">
+                            <img src="https://certificates.airdata.com/badge?i=ILTNoG&r=dLx1&t=5&m=1&size=8&c=0" 
+                                 alt="Airdata UAV|Drone Safety Verified Badge" 
+                                 width="266" 
+                                 height="70">
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -98,10 +101,6 @@
                         <img src="images/linkedin-icon.jpg" alt="LinkedIn">
                         <span>LinkedIn</span>
                     </a>
-                    <a href="https://github.com/stevencoutts" aria-label="Follow on GitHub">
-                        <img src="images/github-icon.png" alt="GitHub">
-                        <span>GitHub</span>
-                    </a>
                 </div>
             </section>
         </aside>
@@ -109,6 +108,12 @@
 
     <footer class="footer">
         <p id="main-section-1-datetime"></p>
+        <div class="footer-links">
+            <a href="https://github.com/stevencoutts" aria-label="View GitHub Profile">
+                <img src="images/github-icon.png" alt="GitHub" width="24" height="24">
+                <span>GitHub</span>
+            </a>
+        </div>
     </footer>
 
     <script>
