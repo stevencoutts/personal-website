@@ -11,11 +11,13 @@ A static personal website served using Nginx in a Docker container.
 - Security headers implementation
 - Responsive design
 - Automated build script
+- Development mode with auto-rebuild
 
 ## Prerequisites
 
 - Docker installed on your system
 - Git (optional, for cloning the repository)
+- Homebrew (for macOS users, required for development mode)
 
 ## Getting Started
 
@@ -35,6 +37,26 @@ This script will:
 5. Provide status messages throughout the process
 
 The website will be available at `http://localhost:8080`
+
+### Development Mode with Auto-Rebuild
+
+For development, you can use the watch script that automatically rebuilds the container when files change:
+
+```bash
+./watch.sh
+```
+
+This script will:
+1. Check for and install required dependencies (fswatch)
+2. Perform an initial build
+3. Monitor the following files for changes:
+   - website.html
+   - styles.css
+   - sw.js
+   - images/
+4. Automatically rebuild and restart the container when changes are detected
+
+Press Ctrl+C to stop the watch script.
 
 ### Manual Build (Alternative)
 
@@ -59,10 +81,13 @@ docker stop $(docker ps -q --filter ancestor=personal-website)
 ```
 .
 ├── website.html          # Main website file
-├── images/              # Static images directory
+├── styles.css           # Website styles
+├── sw.js               # Service worker for offline support
+├── images/             # Static images directory
 ├── nginx.conf          # Nginx configuration
 ├── Dockerfile          # Docker configuration
 ├── build.sh           # Build automation script
+├── watch.sh           # Development mode script
 └── .dockerignore      # Docker ignore file
 ```
 
@@ -87,8 +112,9 @@ The `nginx.conf` file includes:
 
 To make changes to the website:
 1. Modify the HTML/CSS files as needed
-2. Run `./build.sh` to rebuild and redeploy
-3. Or manually rebuild using the Docker commands
+2. Run `./watch.sh` for automatic rebuilds during development
+3. Or use `./build.sh` for manual rebuilds
+4. Or manually rebuild using the Docker commands
 
 ## License
 

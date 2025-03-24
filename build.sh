@@ -11,6 +11,10 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}Starting Docker build process...${NC}"
 
+# Stop and remove any existing containers and networks
+echo -e "${YELLOW}Stopping and removing existing containers...${NC}"
+docker-compose down 2>/dev/null || true
+
 # Stop any existing containers
 echo -e "${YELLOW}Stopping any existing containers...${NC}"
 docker stop $(docker ps -q --filter ancestor=personal-website) 2>/dev/null || true
