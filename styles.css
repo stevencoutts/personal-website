@@ -51,6 +51,7 @@
     border: 1px solid var(--card-border);
     color: var(--primary-color);
     text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+    z-index: 1;
 }
 
 [data-theme="dark"] .social-links a {
@@ -216,8 +217,50 @@ body {
     border: 1px solid var(--card-border);
     border-radius: 12px;
     margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.header h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.05),
+        0 0 10px rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+}
+
+.header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.header:hover h1::after {
+    width: 100px;
+}
+
+[data-theme="dark"] .header h1 {
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.2),
+        0 0 10px rgba(96, 165, 250, 0.1);
+}
+
+[data-theme="dark"] .header h1::after {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.2);
 }
 
 .row {
@@ -311,6 +354,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: var(--card-shadow);
+    z-index: 1000;
 }
 
 .theme-toggle:hover {

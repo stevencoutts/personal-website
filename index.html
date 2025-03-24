@@ -179,10 +179,13 @@
 
         // Fetch and display recent posts
         async function fetchRecentPosts() {
+            const postsList = document.getElementById('recent-posts');
             try {
                 const response = await fetch('http://localhost:8083/api/posts');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const posts = await response.json();
-                const postsList = document.getElementById('recent-posts');
                 postsList.innerHTML = posts.map(post => `
                     <li>
                         <a href="${post.link}" target="_blank" rel="noopener noreferrer">
@@ -193,7 +196,42 @@
                 `).join('');
             } catch (error) {
                 console.error('Error fetching recent posts:', error);
-                document.getElementById('recent-posts').innerHTML = '<li>Error loading posts. Please try again later.</li>';
+                // Fallback list of posts
+                const fallbackPosts = [
+                    {
+                        title: 'Creating an Nginx Docker Container',
+                        link: 'https://blog.couttsnet.com/creating-a-nginx-docker-container/',
+                        date: '2024-03-15'
+                    },
+                    {
+                        title: 'Getting Started with Docker and Kubernetes for Beginners',
+                        link: 'https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/',
+                        date: '2024-03-10'
+                    },
+                    {
+                        title: 'Getting Started With Kubernetes',
+                        link: 'https://blog.couttsnet.com/getting-started-with-kubernetes/',
+                        date: '2024-03-05'
+                    },
+                    {
+                        title: 'Network Automation with Python',
+                        link: 'https://blog.couttsnet.com/network-automation-with-python/',
+                        date: '2024-02-28'
+                    },
+                    {
+                        title: 'SDN Fundamentals',
+                        link: 'https://blog.couttsnet.com/sdn-fundamentals/',
+                        date: '2024-02-20'
+                    }
+                ];
+                postsList.innerHTML = fallbackPosts.map(post => `
+                    <li>
+                        <a href="${post.link}" target="_blank" rel="noopener noreferrer">
+                            ${post.title}
+                            <span class="post-date">${new Date(post.date).toLocaleDateString()}</span>
+                        </a>
+                    </li>
+                `).join('');
             }
         }
 
