@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 2px currentColor); }
+            50% { filter: drop-shadow(0 0 6px currentColor); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-1px); }
+        }
+        .envelope { animation: float 2s ease-in-out infinite; }
+        .lock { animation: glow 1.5s ease-in-out infinite; }
+    </style>
+    <g class="envelope">
+        <path d="M22 8L12 13L2 8V6L12 11L22 6V8Z" fill="currentColor"/>
+        <path d="M2 3H22V19H2V3ZM20 5H4V17H20V5Z" fill="currentColor"/>
+    </g>
+    <g class="lock">
+        <path d="M15 11V7C15 5.34315 13.6569 4 12 4V4C10.3431 4 9 5.34315 9 7V11" stroke="currentColor" stroke-width="2"/>
+        <rect x="8" y="11" width="8" height="6" rx="1" fill="currentColor"/>
+    </g>
+</svg> 
