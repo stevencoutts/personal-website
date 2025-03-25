@@ -1,35 +1,37 @@
 # Personal Website
 
-A modern, responsive personal website built with HTML, CSS, and JavaScript. Features include a dynamic blog post feed, Bluesky integration, and a beautiful dark/light theme.
+A modern, responsive personal website built with HTML, CSS, and JavaScript. Features a clean design with dark/light theme support and dynamic content loading.
 
 ## Features
 
-- 🎨 Modern, responsive design
-- 🌓 Dark/Light theme toggle with system preference detection
-- 📱 Mobile-friendly layout
-- 🔄 Dynamic blog post feed from RSS
-- 🐦 Bluesky integration
-- ⚡ Service Worker for offline capabilities
-- 🔒 Security headers and best practices
-- 🚀 Docker deployment ready
-- 🔍 SEO optimized
-- ♿ Accessibility focused
+- 🌓 Dark/Light theme toggle
+- 📱 Fully responsive design
+- 🎨 Modern UI with smooth animations
+- 📝 Dynamic blog post loading
+- 🔒 PGP key integration
+- 🎯 CCIE certification showcase
+- 🛡️ Airdata UAV Safety certification
+- 🔗 Social media integration
+- 📱 Bluesky social feed integration
+- 🔍 SEO optimized with sitemap and robots.txt
 
 ## Tech Stack
 
 - HTML5
-- CSS3 (with CSS Variables for theming)
+- CSS3 (with CSS Variables and Grid/Flexbox)
 - JavaScript (Vanilla)
-- Node.js (for backend RSS feed)
-- Nginx (web server)
-- Docker (containerization)
+- Docker for containerization
+- Nginx for web server
+- Python (FastAPI) for backend API
 
-## Prerequisites
+## Getting Started
 
-- Docker and Docker Compose
-- Node.js (for local development)
+### Prerequisites
 
-## Local Development
+- Docker
+- Docker Compose
+
+### Installation
 
 1. Clone the repository:
    ```bash
@@ -37,86 +39,65 @@ A modern, responsive personal website built with HTML, CSS, and JavaScript. Feat
    cd personal-website
    ```
 
-2. Install backend dependencies:
+2. Build and start the containers:
    ```bash
-   cd backend
-   npm install
+   ./build.sh
    ```
 
-3. Start the backend server:
-   ```bash
-   node server.js
-   ```
+3. Visit `http://localhost:8083` in your browser
 
-4. Open `index.html` in your browser or use a local server.
+## Development
 
-## Docker Deployment
-
-1. Build the Docker image:
-   ```bash
-   docker build -t personal-website .
-   ```
-
-2. Run the container:
-   ```bash
-   docker run -d -p 80:80 -p 8083:8083 personal-website
-   ```
-
-The website will be available at `http://localhost` and the backend API at `http://localhost:8083`.
-
-## Project Structure
+### Project Structure
 
 ```
 personal-website/
-├── backend/
-│   ├── server.js
-│   └── package.json
-├── images/
-│   ├── CCIE_Enterprise_med.gif
-│   ├── bluesky-icon.webp
-│   ├── favicon.png
-│   ├── github-icon.png
-│   ├── linkedin-icon.jpg
-│   └── pgp-desktop-logo.avif
-├── index.html
-├── styles.css
-├── sw.js
-├── Dockerfile
-├── nginx.conf
-├── start.sh
-└── README.md
+├── frontend/           # Frontend static files
+│   ├── css/           # Stylesheets
+│   ├── js/            # JavaScript files
+│   └── images/        # Image assets
+├── backend/           # Backend API service
+├── nginx/             # Nginx configuration
+├── docker-compose.yml # Docker compose configuration
+└── build.sh          # Build script
 ```
+
+### Building
+
+To rebuild the containers after making changes:
+
+```bash
+./build.sh
+```
+
+### Local Development
+
+1. Make changes to the frontend files in the `frontend` directory
+2. Make changes to the backend files in the `backend` directory
+3. Rebuild using `./build.sh`
 
 ## Features in Detail
 
-### Theme System
-- Automatic dark/light mode detection
+### Theme Support
+- Automatic system theme detection
 - Manual theme toggle
+- Smooth transitions between themes
 - Persistent theme preference
-- Smooth transitions
 
 ### Blog Integration
-- Fetches latest posts from RSS feed
-- Displays post titles and dates
-- Error handling and loading states
-
-### Bluesky Integration
-- Embedded Bluesky feed
-- Responsive layout
-- Link handling
-
-### Performance
-- Service Worker for offline access
-- Resource preloading
-- Optimized asset loading
-- Gzip compression
+- Dynamic loading of recent blog posts
+- Fallback content when API is unavailable
+- Responsive post cards with hover effects
 
 ### Security
-- Content Security Policy
-- XSS Protection
-- Frame Options
-- Referrer Policy
-- CORS configuration
+- PGP key integration for secure communication
+- HTTPS support
+- Secure headers configuration
+
+### Performance
+- Optimized image loading
+- CSS animations for smooth transitions
+- Efficient resource loading
 
 ## Contributing
 
@@ -132,14 +113,8 @@ This project is licensed under The Unlicense - see the [LICENSE](LICENSE) file f
 
 The Unlicense is a template for disclaiming copyright monopoly interest in software you've written; in other words, it is a template for dedicating your software to the public domain. It is a more permissive license than the MIT license, as it disclaims all copyright and related rights.
 
-## Acknowledgments
-
-- Thanks to all contributors and supporters
-- Inspired by modern web design principles
-- Built with modern web technologies
-
 ## Contact
 
-Steven Coutts - [@steven.couttsnet.com](https://bsky.app/profile/steven.couttsnet.com)
+Steve Coutts - [@stevecoutts](https://bsky.app/profile/stevecoutts.bsky.social)
 
 Project Link: [https://github.com/stevencoutts/personal-website](https://github.com/stevencoutts/personal-website) 
