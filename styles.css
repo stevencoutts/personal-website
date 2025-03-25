@@ -469,9 +469,10 @@ body {
 }
 
 .about-me .ccie-badge img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
+    display: block;
 }
 
 .about-me .certifications {
@@ -496,11 +497,12 @@ body {
 }
 
 .about-me .certification-item.airdata-badge {
-    padding: 10px;
-    max-width: 266px;
+    padding: 0;
+    max-width: 171px;
     background: none;
     border: none;
     box-shadow: none;
+    margin: 0 auto;
 }
 
 .about-me .certification-item.airdata-badge:hover {
@@ -511,9 +513,8 @@ body {
 }
 
 .about-me .certification-item.airdata-badge img {
-    width: 100%;
-    height: auto;
-    max-width: 266px;
+    width: 171px;
+    height: 45px;
     margin: 0 auto;
     display: block;
 }
@@ -566,13 +567,13 @@ body {
 .about-me .certification-item.airdata-badge img {
     width: 100%;
     height: auto;
-    max-width: 266px;
+    max-width: 200px;
     margin: 0 auto;
 }
 
 .about-me .airdata-badge {
     width: 100%;
-    max-width: 266px;
+    max-width: 171px;
     margin: 15px auto;
     display: block;
 }
@@ -776,8 +777,8 @@ body {
 }
 
 .ccie-badge img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
     display: block;
 }
