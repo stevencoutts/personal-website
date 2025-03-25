@@ -477,6 +477,10 @@ body {
     display: block;
 }
 
+[data-theme="dark"] .ccie-badge img {
+    content: url('images/CCIE_Enterprise_med-dark.png');
+}
+
 .about-me .certifications {
     display: flex;
     flex-direction: column;
