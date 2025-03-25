@@ -462,15 +462,17 @@ body {
 }
 
 .about-me .ccie-badge {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
 }
 
 .about-me .ccie-badge img {
-    width: 100%;
-    height: 100%;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
+    display: block;
 }
 
 .about-me .certifications {
@@ -495,11 +497,12 @@ body {
 }
 
 .about-me .certification-item.airdata-badge {
-    padding: 10px;
-    max-width: 266px;
+    padding: 0;
+    max-width: 171px;
     background: none;
     border: none;
     box-shadow: none;
+    margin: 0 auto;
 }
 
 .about-me .certification-item.airdata-badge:hover {
@@ -510,9 +513,8 @@ body {
 }
 
 .about-me .certification-item.airdata-badge img {
-    width: 100%;
-    height: auto;
-    max-width: 266px;
+    width: 171px;
+    height: 45px;
     margin: 0 auto;
     display: block;
 }
@@ -522,13 +524,6 @@ body {
     background: var(--hover-color);
     border-color: var(--primary-color);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-}
-
-.about-me .ccie-badge {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    transition: all 0.3s ease;
 }
 
 .about-me .certification-item:hover .ccie-badge,
@@ -572,13 +567,13 @@ body {
 .about-me .certification-item.airdata-badge img {
     width: 100%;
     height: auto;
-    max-width: 266px;
+    max-width: 200px;
     margin: 0 auto;
 }
 
 .about-me .airdata-badge {
     width: 100%;
-    max-width: 266px;
+    max-width: 171px;
     margin: 15px auto;
     display: block;
 }
@@ -716,11 +711,15 @@ body {
 
 .pgp-key {
     margin-top: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .pgp-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 12px;
     border-radius: 12px;
     background: var(--card-bg);
@@ -728,32 +727,68 @@ body {
     transition: all 0.3s ease;
 }
 
+.pgp-icon {
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s ease;
+}
+
 .pgp-link:hover {
     transform: translateY(-3px);
     background: var(--hover-color);
     border-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-}
-
-.pgp-icon {
-    width: 48px;
-    height: 48px;
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
 .pgp-link:hover .pgp-icon {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1);
 }
 
-[data-theme="dark"] .pgp-link {
-    background: var(--card-bg);
+[data-theme='dark'] .pgp-icon {
+    filter: invert(1);
+}
+
+.pgp-link:hover .pgp-icon {
+    transform: scale(1.1);
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
     border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-[data-theme="dark"] .pgp-link:hover {
-    background: var(--hover-color);
-    border-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+.ccie-badge {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.ccie-badge img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+}
+
+.certifications {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .card ul {
@@ -912,18 +947,6 @@ body {
 
 .rightcolumn {
     min-width: 250px;
-}
-
-.card {
-    background-color: var(--card-bg);
-    padding: 25px;
-    margin-top: 20px;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-    border: 1px solid var(--card-border);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    height: fit-content;
 }
 
 .card:hover {
