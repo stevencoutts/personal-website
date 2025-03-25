@@ -302,9 +302,10 @@ body {
 /* Social Links */
 .social-links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     margin-top: 15px;
+    width: 100%;
 }
 
 .social-links a {
@@ -319,6 +320,7 @@ body {
     border: 1px solid var(--card-border);
     background: var(--card-bg);
     text-align: center;
+    width: 100%;
 }
 
 .social-links img {
