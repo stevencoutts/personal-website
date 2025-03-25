@@ -477,6 +477,10 @@ body {
     display: block;
 }
 
+[data-theme="dark"] .ccie-badge img {
+    content: url('images/CCIE_Enterprise_med-dark.png');
+}
+
 .about-me .certifications {
     display: flex;
     flex-direction: column;
@@ -839,7 +843,7 @@ body {
     padding: 25px;
     font-size: 36px;
     text-align: center;
-    background: var(--card-bg);
+    background: linear-gradient(135deg, var(--card-bg), var(--hover-color));
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--card-border);
     border-radius: 12px;
@@ -851,6 +855,41 @@ body {
     margin-left: auto;
     margin-right: auto;
     flex-shrink: 0;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+    animation: gradientMove 15s ease infinite;
+    z-index: 0;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, var(--card-border) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--card-border) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--card-border) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--card-border) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity: 0.1;
+    animation: patternMove 20s linear infinite;
+    z-index: 0;
 }
 
 .header h1 {
@@ -873,6 +912,8 @@ body {
     padding: 15px 0;
     display: block;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes titleGlow {
@@ -904,30 +945,45 @@ body {
     }
 }
 
-[data-theme="dark"] .header h1 {
-    text-shadow: 
-        1px 1px 2px rgba(0, 0, 0, 0.4),
-        2px 2px 4px rgba(0, 0, 0, 0.4),
-        4px 4px 8px rgba(0, 0, 0, 0.4),
-        0 0 15px rgba(96, 165, 250, 0.7);
-    animation: titleGlowDark 4s ease-in-out infinite, gradientShift 8s ease infinite;
-}
-
-@keyframes titleGlowDark {
-    0%, 100% {
-        text-shadow: 
-            1px 1px 2px rgba(0, 0, 0, 0.4),
-            2px 2px 4px rgba(0, 0, 0, 0.4),
-            4px 4px 8px rgba(0, 0, 0, 0.4),
-            0 0 15px rgba(96, 165, 250, 0.7);
+@keyframes gradientMove {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
     }
     50% {
-        text-shadow: 
-            1px 1px 2px rgba(0, 0, 0, 0.5),
-            2px 2px 4px rgba(0, 0, 0, 0.5),
-            4px 4px 8px rgba(0, 0, 0, 0.5),
-            0 0 25px rgba(96, 165, 250, 0.9);
+        transform: translate(10px, 10px) rotate(5deg);
     }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes patternMove {
+    0% {
+        background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+    100% {
+        background-position: 20px 0, 20px 10px, 30px -10px, 10px 0px;
+    }
+}
+
+[data-theme="dark"] .header {
+    background: linear-gradient(135deg, var(--card-bg), var(--hover-color));
+}
+
+[data-theme="dark"] .header::before {
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.1) 0%, transparent 50%);
+}
+
+[data-theme="dark"] .header::after {
+    background-image: 
+        linear-gradient(45deg, var(--card-border) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--card-border) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--card-border) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--card-border) 75%);
+    opacity: 0.05;
 }
 
 .row {
