@@ -2,10 +2,11 @@
 FROM nginx:alpine
 
 # Copy the website files to Nginx's default serving directory
-COPY . /usr/share/nginx/html/
+COPY index.html styles.css sw.js robots.txt sitemap.xml /usr/share/nginx/html/
+COPY images/ /usr/share/nginx/html/images/
 
-# Copy a custom Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy the server configuration
+COPY default.conf /etc/nginx/conf.d/default.conf
 
 # Expose port
 EXPOSE 80
