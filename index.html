@@ -289,21 +289,40 @@
             const bskyFallback = document.getElementById('bsky-fallback');
             let hasContent = false;
             
+            // Function to check for content
+            function checkForContent() {
+                // Check if the bsky-embed element exists and has any children
+                if (bskyEmbed && bskyEmbed.children.length > 0) {
+                    return true;
+                }
+                
+                // Check shadow DOM
+                if (bskyEmbed && bskyEmbed.shadowRoot) {
+                    const shadowChildren = bskyEmbed.shadowRoot.children;
+                    if (shadowChildren && shadowChildren.length > 0) {
+                        return true;
+                    }
+                }
+                
+                // Check for any content in the parent container
+                const container = document.querySelector('.bsky-embed');
+                if (container && container.children.length > 1) { // > 1 because one is the fallback div
+                    return true;
+                }
+                
+                return false;
+            }
+            
             // Watch for changes in the document that might indicate the embed loaded
             const observer = new MutationObserver((mutations) => {
-                // Check for any content within the bsky-embed element
-                const bskyContent = bskyEmbed.shadowRoot ? 
-                    bskyEmbed.shadowRoot.querySelector('.timeline, .post, .feed') : 
-                    bskyEmbed.querySelector('.timeline, .post, .feed');
-                
-                if (bskyContent && bskyContent.children.length > 0) {
+                if (checkForContent()) {
                     hasContent = true;
                     bskyFallback.style.display = 'none';
                     observer.disconnect();
                 }
             });
             
-            // Start observing the bsky-embed element specifically
+            // Start observing both the bsky-embed element and its container
             observer.observe(bskyEmbed, { 
                 childList: true, 
                 subtree: true,
@@ -311,13 +330,25 @@
                 characterData: true
             });
             
+            const container = document.querySelector('.bsky-embed');
+            if (container) {
+                observer.observe(container, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    characterData: true
+                });
+            }
+            
+            // Check for content immediately
+            if (checkForContent()) {
+                hasContent = true;
+                bskyFallback.style.display = 'none';
+            }
+            
             // Also check for content periodically as a backup
             const checkInterval = setInterval(() => {
-                const bskyContent = bskyEmbed.shadowRoot ? 
-                    bskyEmbed.shadowRoot.querySelector('.timeline, .post, .feed') : 
-                    bskyEmbed.querySelector('.timeline, .post, .feed');
-                
-                if (bskyContent && bskyContent.children.length > 0) {
+                if (checkForContent()) {
                     hasContent = true;
                     bskyFallback.style.display = 'none';
                     clearInterval(checkInterval);
