@@ -1,0 +1,318 @@
+<!-- -------------------- -->
+<!-- Created in coteditor -->
+<!-- Steven Coutts        -->
+<!-- -------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Steven Coutts - CCIE 51771, Network Engineer, and Technology Professional">
+    <meta name="keywords" content="Steven Coutts, CCIE, Network Engineer, Technology Professional">
+    <meta name="author" content="Steven Coutts">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Steven Coutts - CCIE 51771">
+    <meta property="og:description" content="Network Engineer and Technology Professional">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stevec.couttsnet.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="images/CCIE_Enterprise_med.png" as="image">
+    
+    <title>Steve Coutts - Personal Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="preload" href="images/CCIE_Enterprise_med-dark.png" as="image">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" async></script>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+        🌓
+    </button>
+
+    <div class="page-container">
+        <div class="content-wrapper">
+            <div class="header">
+                <h1>Steve Coutts</h1>
+            </div>
+
+            <div class="row">
+                <aside class="leftcolumn">
+                    <section class="card">
+                        <div class="ccie-badge">
+                            <img src="images/CCIE_Enterprise_med.png" alt="CCIE Certification Badge" width="200" height="200">
+                        </div>
+                        <div class="certifications">
+                            <div class="certification-item airdata-badge">
+                                <a href='https://certificates.airdata.com/ILTNoG' target="_blank">
+                                    <img alt='Airdata UAV|Drone Safety Verified Badge' src='https://certificates.airdata.com/badge?i=ILTNoG&r=Jj98&t=5&m=1&size=1&c=0' style='width:171px;height:45px;border:0;image-rendering: optimizequality;image-rendering: smooth;'>
+                                </a>
+                            </div>
+                            <div class="pgp-key">
+                                <a href="pgp-public-stevec-couttsnet-com.asc" target="_blank" class="pgp-link" download title="Download PGP Public Key">
+                                    <img src="images/secure-email-icon.svg" alt="Secure Email PGP Key" class="pgp-icon">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/stevencoutts" target="_blank" class="social-link">
+                                <img src="images/github-icon.png" alt="GitHub" class="social-icon">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://linkedin.com/in/stevencoutts" target="_blank" class="social-link">
+                                <img src="images/linkedin-icon.jpg" alt="LinkedIn" class="social-icon">
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://bsky.app/profile/stevecoutts.bsky.social" target="_blank" class="social-link">
+                                <img src="images/bluesky-icon.webp" alt="Bluesky" class="social-icon">
+                                <span>Bluesky</span>
+                            </a>
+                        </div>
+                    </section>
+
+                    <div class="card">
+                        <h2>Skills & Expertise</h2>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h3>Networking</h3>
+                                <ul>
+                                    <li>CCIE Enterprise Infrastructure</li>
+                                    <li>Network Design & Architecture</li>
+                                    <li>Network Security</li>
+                                    <li>SDN & Automation</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3>Programming</h3>
+                                <ul>
+                                    <li>Python</li>
+                                    <li>Network Automation</li>
+                                    <li>Shell Scripting</li>
+                                    <li>Git</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3>Cloud & DevOps</h3>
+                                <ul>
+                                    <li>AWS</li>
+                                    <li>Docker</li>
+                                    <li>CI/CD</li>
+                                    <li>Infrastructure as Code</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="rightcolumn">
+                    <section class="card">
+                        <h2>Recent Posts</h2>
+                        <div id="posts-container">
+                            <div class="loading">Loading posts...</div>
+                        </div>
+                    </section>
+
+                    <section class="card">
+                        <h2>Bluesky Feed</h2>
+                        <div class="bluesky-feed">
+                            <iframe src="https://bsky.app/profile/stevecoutts.bsky.social/embed" 
+                                    frameborder="0" 
+                                    scrolling="no" 
+                                    width="100%" 
+                                    height="600px" 
+                                    allowtransparency="true">
+                            </iframe>
+                            <div class="bluesky-fallback">
+                                <p>Unable to load Bluesky feed. Please visit my <a href="https://bsky.app/profile/stevecoutts.bsky.social" target="_blank">Bluesky profile</a> directly.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <div class="footer-wrapper">
+            <footer class="footer">
+                <p>© 2024 Steve Coutts. All rights reserved. | This project is licensed under <a href="https://unlicense.org" target="_blank">The Unlicense</a> | Made with ❤️ using modern web technologies</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme preference or use system preference
+        const currentTheme = localStorage.getItem('theme') || 
+            (prefersDarkScheme.matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌓';
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌓';
+        });
+
+        // Fetch and display blog posts dynamically
+        async function fetchAndDisplayBlogPosts() {
+            const postsList = document.getElementById('recent-posts');
+            
+            // Define fallback posts in case the fetch fails
+            const fallbackPosts = [
+                {
+                    title: 'Creating a Nginx Docker Container',
+                    link: 'https://blog.couttsnet.com/creating-a-nginx-docker-container/',
+                    date: 'Dec 9, 2024'
+                },
+                {
+                    title: 'Getting Started with Docker and Kubernetes for Beginners',
+                    link: 'https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/',
+                    date: 'Dec 9, 2024'
+                },
+                {
+                    title: 'Getting Started With Kubernetes',
+                    link: 'https://blog.couttsnet.com/getting-started-with-kubernetes/',
+                    date: 'Dec 8, 2024'
+                },
+                {
+                    title: 'What is Microsoft Azure?',
+                    link: 'https://blog.couttsnet.com/what-is-microsoft-azure/',
+                    date: 'Mar 13, 2024'
+                },
+                {
+                    title: 'Enable Wired 802.1x – Group Policy',
+                    link: 'https://blog.couttsnet.com/enable-wired-802-1x-group-policy/',
+                    date: 'Mar 28, 2022'
+                }
+            ];
+            
+            try {
+                // Use a public RSS to JSON converter service that provides CORS headers
+                const rssFeedUrl = 'https://blog.couttsnet.com/feed/';
+                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`;
+                
+                const response = await fetch(proxyUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.status !== 'ok' || !data.items || data.items.length === 0) {
+                    throw new Error('No posts found in RSS feed');
+                }
+                
+                // Extract post information (limit to 5 posts)
+                const posts = data.items.slice(0, 5).map(item => {
+                    const pubDate = new Date(item.pubDate);
+                    return {
+                        title: item.title,
+                        link: item.link,
+                        date: pubDate.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        })
+                    };
+                });
+                
+                // Display the posts
+                displayPosts(posts);
+            } catch (error) {
+                // Use fallback posts if fetch fails
+                displayPosts(fallbackPosts);
+            }
+        }
+        
+        // Display posts in the DOM
+        function displayPosts(posts) {
+            const postsList = document.getElementById('recent-posts');
+            
+            // Clear the loading message
+            postsList.innerHTML = '';
+            
+            // Add each post to the list
+            posts.forEach(post => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a href="${post.link}" target="_blank" rel="noopener noreferrer">
+                        ${post.title}
+                        <span class="post-date">${post.date}</span>
+                    </a>
+                `;
+                postsList.appendChild(li);
+            });
+        }
+
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayBlogPosts);
+        
+        // Also set up a refresh interval (every 30 minutes)
+        setInterval(fetchAndDisplayBlogPosts, 30 * 60 * 1000);
+
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // Check if Bluesky content loads properly
+        document.addEventListener('DOMContentLoaded', () => {
+            const bskyEmbed = document.querySelector('bsky-embed');
+            const bskyFallback = document.getElementById('bsky-fallback');
+            
+            // More reliable check using MutationObserver to detect changes to the embed
+            let hasContent = false;
+            
+            // Watch for changes in the document that might indicate the embed loaded
+            const observer = new MutationObserver((mutations) => {
+                // Check if there are any visible feed posts in the embed
+                const bskyContainer = document.querySelector('.bsky-embed');
+                if (bskyContainer && bskyContainer.querySelector('iframe') && 
+                    !bskyContainer.querySelector('iframe').classList.contains('loading')) {
+                    hasContent = true;
+                }
+            });
+            
+            // Start observing changes to the document
+            observer.observe(document.body, { 
+                childList: true, 
+                subtree: true,
+                attributes: true
+            });
+            
+            // If no content after timeout, show fallback
+            setTimeout(() => {
+                // Stop observing
+                observer.disconnect();
+                
+                // If no content was detected, show fallback
+                if (!hasContent) {
+                    bskyFallback.style.display = 'block';
+                }
+            }, 8000); // Give more time to load - 8 seconds
+        });
+    </script>
+</body>
+</html>
