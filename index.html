@@ -287,22 +287,24 @@
         document.addEventListener('DOMContentLoaded', () => {
             const bskyEmbed = document.querySelector('bsky-embed');
             const bskyFallback = document.getElementById('bsky-fallback');
-            
-            // More reliable check using MutationObserver to detect changes to the embed
             let hasContent = false;
             
             // Watch for changes in the document that might indicate the embed loaded
             const observer = new MutationObserver((mutations) => {
-                // Check if there are any visible feed posts in the embed
-                const bskyContainer = document.querySelector('.bsky-embed');
-                if (bskyContainer && bskyContainer.querySelector('iframe') && 
-                    !bskyContainer.querySelector('iframe').classList.contains('loading')) {
+                // Check for any content within the bsky-embed element
+                const bskyContent = bskyEmbed.shadowRoot ? 
+                    bskyEmbed.shadowRoot.querySelector('.timeline') : 
+                    bskyEmbed.querySelector('.timeline');
+                
+                if (bskyContent && bskyContent.children.length > 0) {
                     hasContent = true;
+                    bskyFallback.style.display = 'none';
+                    observer.disconnect();
                 }
             });
             
-            // Start observing changes to the document
-            observer.observe(document.body, { 
+            // Start observing the bsky-embed element specifically
+            observer.observe(bskyEmbed, { 
                 childList: true, 
                 subtree: true,
                 attributes: true
@@ -310,14 +312,11 @@
             
             // If no content after timeout, show fallback
             setTimeout(() => {
-                // Stop observing
                 observer.disconnect();
-                
-                // If no content was detected, show fallback
                 if (!hasContent) {
                     bskyFallback.style.display = 'block';
                 }
-            }, 8000); // Give more time to load - 8 seconds
+            }, 8000);
         });
     </script>
 </body>
