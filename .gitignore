@@ -4,11 +4,18 @@ npm-debug.log
 yarn-error.log
 yarn-debug.log
 .pnpm-debug.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # Build files
 dist/
 build/
 *.tgz
+.next/
+out/
+.nuxt/
+.output/
 
 # Environment variables
 .env
@@ -16,13 +23,18 @@ build/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
 
 # Cache
 .cache/
 .parcel-cache/
+.npm/
+.eslintcache
+.stylelintcache
 
 # Coverage reports
 coverage/
+.nyc_output/
 
 # Editor directories and files
 .idea/
@@ -30,15 +42,36 @@ coverage/
 *.swp
 *.swo
 .DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
 
 # Temporary files
 tmp/
 temp/
+.tmp/
+.temp/
 
 # Logs
 logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Backend
 backend/
-backend/blog-posts-cache.json 
+backend/blog-posts-cache.json
+
+# Testing
+.nyc_output/
+coverage/
+.nyc_output/
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local 
