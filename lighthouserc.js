@@ -11,6 +11,7 @@ module.exports = {
           throughputKbps: 10240,
           cpuSlowdownMultiplier: 1,
         },
+        waitFor: 5000,
       },
     },
     assert: {
