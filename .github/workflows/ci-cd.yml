@@ -47,12 +47,12 @@ jobs:
     - name: Check for broken links
       run: |
         npm install -g broken-link-checker
-        blc http://localhost:8080 -ro
+        blc http://localhost:8085 -ro
     
     - name: Check for accessibility issues
       run: |
         npm install -g axe-cli
-        axe http://localhost:8080
+        axe http://localhost:8085
     
     - name: Check for security issues
       run: |
