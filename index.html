@@ -293,8 +293,8 @@
             const observer = new MutationObserver((mutations) => {
                 // Check for any content within the bsky-embed element
                 const bskyContent = bskyEmbed.shadowRoot ? 
-                    bskyEmbed.shadowRoot.querySelector('.timeline') : 
-                    bskyEmbed.querySelector('.timeline');
+                    bskyEmbed.shadowRoot.querySelector('.timeline, .post, .feed') : 
+                    bskyEmbed.querySelector('.timeline, .post, .feed');
                 
                 if (bskyContent && bskyContent.children.length > 0) {
                     hasContent = true;
@@ -307,12 +307,27 @@
             observer.observe(bskyEmbed, { 
                 childList: true, 
                 subtree: true,
-                attributes: true
+                attributes: true,
+                characterData: true
             });
+            
+            // Also check for content periodically as a backup
+            const checkInterval = setInterval(() => {
+                const bskyContent = bskyEmbed.shadowRoot ? 
+                    bskyEmbed.shadowRoot.querySelector('.timeline, .post, .feed') : 
+                    bskyEmbed.querySelector('.timeline, .post, .feed');
+                
+                if (bskyContent && bskyContent.children.length > 0) {
+                    hasContent = true;
+                    bskyFallback.style.display = 'none';
+                    clearInterval(checkInterval);
+                }
+            }, 1000);
             
             // If no content after timeout, show fallback
             setTimeout(() => {
                 observer.disconnect();
+                clearInterval(checkInterval);
                 if (!hasContent) {
                     bskyFallback.style.display = 'block';
                 }
