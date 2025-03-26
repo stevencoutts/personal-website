@@ -33,7 +33,6 @@ jobs:
         uploadArtifacts: true
         temporaryPublicStorage: false
         configPath: './lighthouserc.js'
-        artifactName: lighthouse-results
     
     - name: Check HTML validity
       run: |
