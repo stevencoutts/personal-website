@@ -54,7 +54,7 @@ A modern, responsive personal website showcasing my professional background, cer
 ### Prerequisites
 
 - Modern web browser with JavaScript enabled
-- Basic understanding of HTML, CSS, and JavaScript
+- Basic understanding of HTML, CSS, and JavaScript.
 
 ### Local Development
 
