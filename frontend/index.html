@@ -8,15 +8,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Steven Coutts - CCIE 51771, Network Engineer, and Technology Professional">
-    <meta name="keywords" content="Steven Coutts, CCIE, Network Engineer, Technology Professional">
+    <meta name="description" content="Steven Coutts - CCIE 51771, Network Engineer, and Technology Professional specializing in network design, security, and automation. Expert in enterprise infrastructure and cloud technologies.">
+    <meta name="keywords" content="Steven Coutts, CCIE, Network Engineer, Technology Professional, Network Design, Network Security, SDN, Automation, AWS, Docker, CI/CD">
     <meta name="author" content="Steven Coutts">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Steven Coutts - CCIE 51771">
-    <meta property="og:description" content="Network Engineer and Technology Professional">
+    <meta property="og:title" content="Steven Coutts - CCIE 51771 | Network Engineer & Technology Professional">
+    <meta property="og:description" content="Network Engineer and Technology Professional specializing in enterprise infrastructure, security, and automation. CCIE certified expert.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://stevec.couttsnet.com">
+    <meta property="og:image" content="https://stevec.couttsnet.com/images/CCIE_Enterprise_med.png">
+    <meta property="og:site_name" content="Steven Coutts - Personal Website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Steven Coutts - CCIE 51771 | Network Engineer">
+    <meta name="twitter:description" content="Network Engineer and Technology Professional specializing in enterprise infrastructure, security, and automation.">
+    <meta name="twitter:image" content="https://stevec.couttsnet.com/images/CCIE_Enterprise_med.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -25,12 +36,49 @@
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="images/CCIE_Enterprise_med.png" as="image">
     
-    <title>Steve Coutts - Personal Website</title>
+    <title>Steven Coutts - CCIE 51771 | Network Engineer & Technology Professional</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <meta name="theme-color" content="#3b82f6">
     <link rel="preload" href="images/CCIE_Enterprise_med-dark.png" as="image">
     <script type="module" src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" async></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Steven Coutts",
+        "url": "https://stevec.couttsnet.com",
+        "image": "https://stevec.couttsnet.com/images/CCIE_Enterprise_med.png",
+        "sameAs": [
+            "https://github.com/stevencoutts",
+            "https://linkedin.com/in/stevencoutts",
+            "https://bsky.app/profile/stevecoutts.bsky.social"
+        ],
+        "jobTitle": "Network Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Technology Professional"
+        },
+        "knowsAbout": [
+            "Network Design",
+            "Network Security",
+            "SDN",
+            "Automation",
+            "AWS",
+            "Docker",
+            "CI/CD",
+            "Infrastructure as Code"
+        ],
+        "hasCredential": {
+            "@type": "EducationalCredential",
+            "credentialCategory": "Professional Certification",
+            "name": "CCIE Enterprise Infrastructure",
+            "credentialNumber": "51771"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Theme Toggle Button -->
@@ -40,19 +88,20 @@
 
     <div class="page-container">
         <div class="content-wrapper">
-            <div class="header">
-                <h1>Steve Coutts</h1>
-            </div>
+            <header class="header">
+                <h1>Steven Coutts</h1>
+                <p class="subtitle">CCIE 51771 | Network Engineer & Technology Professional</p>
+            </header>
 
             <div class="row">
                 <aside class="leftcolumn">
-                    <section class="card">
+                    <section class="card" itemscope itemtype="https://schema.org/Person">
                         <div class="ccie-badge">
-                            <img src="images/CCIE_Enterprise_med.png" alt="CCIE Certification Badge" width="200" height="200">
+                            <img src="images/CCIE_Enterprise_med.png" alt="CCIE Certification Badge" width="200" height="200" itemprop="image">
                         </div>
                         <div class="certifications">
                             <div class="certification-item airdata-badge">
-                                <a href='https://certificates.airdata.com/ILTNoG' target="_blank">
+                                <a href='https://certificates.airdata.com/ILTNoG' target="_blank" rel="noopener noreferrer">
                                     <img alt='Airdata UAV|Drone Safety Verified Badge' src='https://certificates.airdata.com/badge?i=ILTNoG&r=Jj98&t=5&m=1&size=1&c=0' style='width:171px;height:45px;border:0;image-rendering: optimizequality;image-rendering: smooth;'>
                                 </a>
                             </div>
@@ -62,23 +111,23 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="social-links">
-                            <a href="https://github.com/stevencoutts" target="_blank" class="social-link">
-                                <img src="images/github-icon.png" alt="GitHub" class="social-icon">
+                        <nav class="social-links" aria-label="Social media links">
+                            <a href="https://github.com/stevencoutts" target="_blank" rel="noopener noreferrer" class="social-link" itemprop="sameAs">
+                                <img src="images/github-icon.png" alt="GitHub Profile" class="social-icon">
                                 <span>GitHub</span>
                             </a>
-                            <a href="https://linkedin.com/in/stevencoutts" target="_blank" class="social-link">
-                                <img src="images/linkedin-icon.jpg" alt="LinkedIn" class="social-icon">
+                            <a href="https://linkedin.com/in/stevencoutts" target="_blank" rel="noopener noreferrer" class="social-link" itemprop="sameAs">
+                                <img src="images/linkedin-icon.jpg" alt="LinkedIn Profile" class="social-icon">
                                 <span>LinkedIn</span>
                             </a>
-                            <a href="https://bsky.app/profile/stevecoutts.bsky.social" target="_blank" class="social-link">
-                                <img src="images/bluesky-icon.webp" alt="Bluesky" class="social-icon">
+                            <a href="https://bsky.app/profile/stevecoutts.bsky.social" target="_blank" rel="noopener noreferrer" class="social-link" itemprop="sameAs">
+                                <img src="images/bluesky-icon.webp" alt="Bluesky Profile" class="social-icon">
                                 <span>Bluesky</span>
                             </a>
-                        </div>
+                        </nav>
                     </section>
 
-                    <div class="card">
+                    <section class="card">
                         <h2>Skills & Expertise</h2>
                         <div class="skills-grid">
                             <div class="skill-category">
@@ -109,13 +158,13 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </aside>
 
                 <main class="rightcolumn">
                     <section class="card">
                         <h2>Recent Posts</h2>
-                        <div id="posts-container">
+                        <div id="posts-container" aria-live="polite">
                             <div class="loading">Loading posts...</div>
                         </div>
                     </section>
@@ -128,10 +177,11 @@
                                     scrolling="no" 
                                     width="100%" 
                                     height="600px" 
-                                    allowtransparency="true">
+                                    allowtransparency="true"
+                                    title="Bluesky Social Feed">
                             </iframe>
                             <div class="bluesky-fallback">
-                                <p>Unable to load Bluesky feed. Please visit my <a href="https://bsky.app/profile/stevecoutts.bsky.social" target="_blank">Bluesky profile</a> directly.</p>
+                                <p>Unable to load Bluesky feed. Please visit my <a href="https://bsky.app/profile/stevecoutts.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky profile</a> directly.</p>
                             </div>
                         </div>
                     </section>
@@ -139,11 +189,11 @@
             </div>
         </div>
 
-        <div class="footer-wrapper">
+        <footer class="footer-wrapper">
             <footer class="footer">
-                <p>© 2025 Steven Coutts. All rights reserved. | This project is licensed under <a href="https://unlicense.org" target="_blank">The Unlicense</a> | Made with ❤️ using modern web technologies</p>
+                <p>© 2025 Steven Coutts. All rights reserved. | This project is licensed under <a href="https://unlicense.org" target="_blank" rel="noopener noreferrer">The Unlicense</a> | Made with ❤️ using modern web technologies</p>
             </footer>
-        </div>
+        </footer>
     </div>
 
     <script>
