@@ -641,19 +641,210 @@ body {
 @media screen and (max-width: 800px) {
     .row {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .leftcolumn, .middlecolumn, .rightcolumn {
         grid-column: 1;
+        width: 100%;
     }
     
     .header {
+        font-size: 28px;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .header h1 {
         font-size: 32px;
-        padding: 20px;
+    }
+
+    .card {
+        margin: 10px;
+        padding: 15px;
     }
 
     .social-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .ccie-badge img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        font-size: 24px;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .card {
+        margin: 5px;
+        padding: 12px;
+    }
+
+    .social-links {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ccie-badge img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .certifications {
         gap: 15px;
+    }
+
+    .about-me .certification-item.airdata-badge img {
+        width: 140px;
+        height: 37px;
+    }
+
+    .footer {
+        padding: 15px;
+        font-size: 0.85em;
+    }
+
+    .footer p {
+        font-size: 0.9em;
+    }
+
+    #recent-posts li a {
+        font-size: 13px;
+    }
+
+    .post-date {
+        font-size: 0.8em;
+    }
+
+    .bsky-embed iframe {
+        max-height: 600px;
+    }
+}
+
+/* Add touch-friendly styles */
+@media (hover: none) {
+    .card:hover,
+    .social-links a:hover,
+    .pgp-link:hover,
+    .skill-category:hover,
+    #recent-posts li:hover {
+        transform: none;
+    }
+
+    .card:active,
+    .social-links a:active,
+    .pgp-link:active,
+    .skill-category:active,
+    #recent-posts li:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Improve scrolling on mobile */
+@media screen and (max-width: 800px) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .page-container {
+        padding: 10px;
+    }
+
+    .content-wrapper {
+        padding: 0 5px;
+    }
+}
+
+/* Optimize images for mobile */
+@media screen and (max-width: 480px) {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .social-links img {
+        max-width: 32px;
+        max-height: 32px;
+    }
+}
+
+/* Improve text readability on mobile */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .skill-category h3 {
+        font-size: 16px;
+    }
+}
+
+/* Add better spacing for mobile */
+@media screen and (max-width: 480px) {
+    .card {
+        margin-bottom: 15px;
+    }
+
+    .card ul li {
+        padding: 10px;
+    }
+
+    .social-links a {
+        padding: 10px;
+    }
+
+    .pgp-link {
+        padding: 8px;
+    }
+
+    .footer {
+        margin-top: 20px;
     }
 }
 

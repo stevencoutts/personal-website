@@ -6,13 +6,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Steven Coutts - CCIE 51771, Network Engineer, and Technology Professional">
     <meta name="keywords" content="Steven Coutts, CCIE, Network Engineer, Technology Professional">
     <meta name="author" content="Steven Coutts">
     
-    <!-- Open Graph / Social Media -->
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
     <meta property="og:title" content="Steven Coutts - CCIE 51771">
     <meta property="og:description" content="Network Engineer and Technology Professional">
     <meta property="og:type" content="website">
@@ -21,38 +22,46 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     
-    <!-- Preload critical resources -->
+    <!-- Preload Critical Resources for Performance -->
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="images/CCIE_Enterprise_med.png" as="image">
     
     <title>Steven Coutts CCIE 51771</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Bluesky Embed Script - Loaded asynchronously -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" async></script>
 </head>
 <body>
-    <!-- Theme Toggle Button -->
+    <!-- Theme Toggle Button for Dark/Light Mode -->
     <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
         🌓
     </button>
 
+    <!-- Main Page Container -->
     <div class="page-container">
         <div class="content-wrapper">
+            <!-- Header Section -->
             <div class="header">
                 <h1>Steven Coutts</h1>
             </div>
 
+            <!-- Main Content Row -->
             <div class="row">
+                <!-- Left Column - Certifications and Skills -->
                 <aside class="leftcolumn">
+                    <!-- CCIE Badge and Certifications Card -->
                     <section class="card">
                         <div class="ccie-badge">
                             <img src="images/CCIE_Enterprise_med.png" alt="CCIE Certification Badge" width="200" height="200">
                         </div>
                         <div class="certifications">
+                            <!-- Airdata Badge -->
                             <div class="certification-item airdata-badge">
                                 <a href='https://certificates.airdata.com/ILTNoG' target="_blank">
                                     <img alt='Airdata UAV|Drone Safety Verified Badge' src='https://certificates.airdata.com/badge?i=ILTNoG&r=Jj98&t=5&m=1&size=1&c=0' style='width:171px;height:45px;border:0;image-rendering: optimizequality;image-rendering: smooth;'>
                                 </a>
                             </div>
+                            <!-- PGP Key -->
                             <div class="pgp-key">
                                 <a href="pgp-public-stevec-couttsnet-com.asc" target="_blank" class="pgp-link" download title="Download PGP Public Key">
                                     <img src="images/secure-email-icon.svg" alt="Secure Email PGP Key" class="pgp-icon">
@@ -61,9 +70,11 @@
                         </div>
                     </section>
 
+                    <!-- Skills Card -->
                     <div class="card">
                         <h2>Skills & Expertise</h2>
                         <div class="skills-grid">
+                            <!-- Networking Skills -->
                             <div class="skill-category">
                                 <h3>Networking</h3>
                                 <ul>
@@ -73,6 +84,7 @@
                                     <li>SDN & Automation</li>
                                 </ul>
                             </div>
+                            <!-- Programming Skills -->
                             <div class="skill-category">
                                 <h3>Programming</h3>
                                 <ul>
@@ -82,6 +94,7 @@
                                     <li>Git</li>
                                 </ul>
                             </div>
+                            <!-- Cloud & DevOps Skills -->
                             <div class="skill-category">
                                 <h3>Cloud & DevOps</h3>
                                 <ul>
@@ -95,10 +108,12 @@
                     </div>
                 </aside>
 
+                <!-- Middle Column - Bluesky Feed -->
                 <main class="middlecolumn">
                     <article class="card">
                         <h2>Bluesky <a href="https://bsky.app/profile/steven.couttsnet.com" aria-label="View Steven's Bluesky profile">@steven.couttsnet.com</a></h2>
                         <div class="bsky-embed">
+                            <!-- Bluesky Embed Component -->
                             <bsky-embed
                                 username="steven.couttsnet.com"
                                 limit="5"
@@ -107,6 +122,7 @@
                                 load-more="true"
                             >
                             </bsky-embed>
+                            <!-- Fallback Message for when Bluesky content fails to load -->
                             <div id="bsky-fallback" style="display: none; padding: 15px; text-align: center;">
                                 <p>Bluesky content couldn't be loaded. Please visit my <a href="https://bsky.app/profile/steven.couttsnet.com" target="_blank">Bluesky profile</a> directly.</p>
                             </div>
@@ -114,7 +130,9 @@
                     </article>
                 </main>
 
+                <!-- Right Column - Recent Posts and Social Links -->
                 <aside class="rightcolumn">
+                    <!-- Recent Blog Posts Card -->
                     <section class="card">
                         <h2>Recent Posts</h2>
                         <nav aria-label="Recent blog posts">
@@ -124,6 +142,7 @@
                         </nav>
                     </section>
 
+                    <!-- Social Links Card -->
                     <section class="card">
                         <h2>Connect</h2>
                         <div class="social-links">
@@ -145,24 +164,26 @@
             </div>
         </div>
 
+        <!-- Footer Section -->
         <div class="footer-wrapper">
             <footer class="footer">
-                <p>© 2024 Steven Coutts. All rights reserved. | This project is licensed under <a href="https://unlicense.org" target="_blank">The Unlicense</a> | Made with ❤️ using modern web technologies</p>
+                <p>© 2025 Steven Coutts. All rights reserved. | This project is licensed under <a href="https://unlicense.org" target="_blank">The Unlicense</a> | Made with ❤️ using modern web technologies</p>
             </footer>
         </div>
     </div>
 
     <script>
-        // Theme toggle functionality
+        // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         
-        // Check for saved theme preference or use system preference
+        // Initialize theme based on saved preference or system preference
         const currentTheme = localStorage.getItem('theme') || 
             (prefersDarkScheme.matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', currentTheme);
         themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌓';
 
+        // Theme toggle event listener
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -172,11 +193,11 @@
             themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌓';
         });
 
-        // Fetch and display blog posts dynamically
+        // Blog Posts Fetching and Display Functionality
         async function fetchAndDisplayBlogPosts() {
             const postsList = document.getElementById('recent-posts');
             
-            // Define fallback posts in case the fetch fails
+            // Fallback posts in case the RSS feed fetch fails
             const fallbackPosts = [
                 {
                     title: 'Creating a Nginx Docker Container',
@@ -206,7 +227,7 @@
             ];
             
             try {
-                // Use a public RSS to JSON converter service that provides CORS headers
+                // Fetch RSS feed through a proxy service that provides CORS headers
                 const rssFeedUrl = 'https://blog.couttsnet.com/feed/';
                 const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`;
                 
@@ -222,7 +243,7 @@
                     throw new Error('No posts found in RSS feed');
                 }
                 
-                // Extract post information (limit to 5 posts)
+                // Process and format the posts
                 const posts = data.items.slice(0, 5).map(item => {
                     const pubDate = new Date(item.pubDate);
                     return {
@@ -236,15 +257,15 @@
                     };
                 });
                 
-                // Display the posts
+                // Display the processed posts
                 displayPosts(posts);
             } catch (error) {
-                // Use fallback posts if fetch fails
+                // Use fallback posts if the fetch fails
                 displayPosts(fallbackPosts);
             }
         }
         
-        // Display posts in the DOM
+        // Function to display posts in the DOM
         function displayPosts(posts) {
             const postsList = document.getElementById('recent-posts');
             
@@ -264,13 +285,13 @@
             });
         }
 
-        // Call the function when the page loads
+        // Initialize blog posts when the page loads
         document.addEventListener('DOMContentLoaded', fetchAndDisplayBlogPosts);
         
-        // Also set up a refresh interval (every 30 minutes)
+        // Refresh blog posts every 30 minutes
         setInterval(fetchAndDisplayBlogPosts, 30 * 60 * 1000);
 
-        // Service Worker Registration
+        // Service Worker Registration for PWA functionality
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
@@ -283,36 +304,82 @@
             });
         }
 
-        // Check if Bluesky content loads properly
+        // Bluesky Embed Content Loading Check
         document.addEventListener('DOMContentLoaded', () => {
             const bskyEmbed = document.querySelector('bsky-embed');
             const bskyFallback = document.getElementById('bsky-fallback');
             let hasContent = false;
             
-            // Watch for changes in the document that might indicate the embed loaded
-            const observer = new MutationObserver((mutations) => {
-                // Check for any content within the bsky-embed element
-                const bskyContent = bskyEmbed.shadowRoot ? 
-                    bskyEmbed.shadowRoot.querySelector('.timeline') : 
-                    bskyEmbed.querySelector('.timeline');
+            // Function to check if Bluesky content has loaded
+            function checkForContent() {
+                // Check direct children of the embed element
+                if (bskyEmbed && bskyEmbed.children.length > 0) {
+                    return true;
+                }
                 
-                if (bskyContent && bskyContent.children.length > 0) {
+                // Check shadow DOM for content
+                if (bskyEmbed && bskyEmbed.shadowRoot) {
+                    const shadowChildren = bskyEmbed.shadowRoot.children;
+                    if (shadowChildren && shadowChildren.length > 0) {
+                        return true;
+                    }
+                }
+                
+                // Check parent container for additional content
+                const container = document.querySelector('.bsky-embed');
+                if (container && container.children.length > 1) { // > 1 because one is the fallback div
+                    return true;
+                }
+                
+                return false;
+            }
+            
+            // Set up MutationObserver to watch for content changes
+            const observer = new MutationObserver((mutations) => {
+                if (checkForContent()) {
                     hasContent = true;
                     bskyFallback.style.display = 'none';
                     observer.disconnect();
                 }
             });
             
-            // Start observing the bsky-embed element specifically
+            // Observe both the embed element and its container
             observer.observe(bskyEmbed, { 
                 childList: true, 
                 subtree: true,
-                attributes: true
+                attributes: true,
+                characterData: true
             });
             
-            // If no content after timeout, show fallback
+            const container = document.querySelector('.bsky-embed');
+            if (container) {
+                observer.observe(container, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    characterData: true
+                });
+            }
+            
+            // Initial content check
+            if (checkForContent()) {
+                hasContent = true;
+                bskyFallback.style.display = 'none';
+            }
+            
+            // Periodic content check as backup
+            const checkInterval = setInterval(() => {
+                if (checkForContent()) {
+                    hasContent = true;
+                    bskyFallback.style.display = 'none';
+                    clearInterval(checkInterval);
+                }
+            }, 1000);
+            
+            // Show fallback message if no content after timeout
             setTimeout(() => {
                 observer.disconnect();
+                clearInterval(checkInterval);
                 if (!hasContent) {
                     bskyFallback.style.display = 'block';
                 }
