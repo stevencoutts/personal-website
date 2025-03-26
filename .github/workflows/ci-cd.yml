@@ -33,7 +33,7 @@ jobs:
         uploadArtifacts: true
         temporaryPublicStorage: false
         configPath: './lighthouserc.js'
-        artifactName: lighthouse-results-${GITHUB_SHA}
+        artifactName: lighthouse-results
     
     - name: Check HTML validity
       run: |
