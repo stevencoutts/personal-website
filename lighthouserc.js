@@ -3,7 +3,15 @@ module.exports = {
     collect: {
       startServerCommand: 'npm run serve',
       url: ['http://localhost:8080'],
-      numberOfRuns: 5,
+      numberOfRuns: 3,
+      settings: {
+        preset: 'desktop',
+        throttling: {
+          rttMs: 40,
+          throughputKbps: 10240,
+          cpuSlowdownMultiplier: 1,
+        },
+      },
     },
     assert: {
       assertions: {
@@ -18,7 +26,8 @@ module.exports = {
       },
     },
     upload: {
-      target: 'temporary-public-storage',
+      target: 'filesystem',
+      outputDir: './lighthouse-results',
     },
   },
 }; 

@@ -31,8 +31,12 @@ jobs:
       uses: treosh/lighthouse-ci-action@v9
       with:
         uploadArtifacts: true
-        temporaryPublicStorage: true
+        temporaryPublicStorage: false
         configPath: './lighthouserc.js'
+        serverCommand: 'npm run serve'
+        serverStartTimeout: 30000
+        serverWaitTimeout: 30000
+        maxRetries: 3
     
     - name: Check HTML validity
       run: |
