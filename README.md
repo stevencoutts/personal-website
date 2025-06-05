@@ -60,50 +60,7 @@ A modern, responsive personal website showcasing my professional background, cer
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/personal-website.git
+   git clone https://github.com/stevencoutts/personal-website.git
    ```
 
-2. Open `index.html` in your preferred web browser or use a local development server.
-
-### Customization
-
-- Update personal information in `index.html`
-- Modify styles in `styles.css`
-- Adjust blog post refresh interval in the JavaScript code
-- Update Bluesky embed parameters as needed
-
-## Deployment
-
-The website is designed to be deployed on any static hosting service. Simply upload the files to your hosting provider.
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
-
-## Performance Metrics
-
-- Lighthouse scores:
-  - Performance: 95+
-  - Accessibility: 100
-  - Best Practices: 100
-  - SEO: 100
-
-## Contributing
-
-While this is a personal website, suggestions and improvements are welcome. Please feel free to submit issues or pull requests.
-
-## License
-
-This project is licensed under The Unlicense - see the [LICENSE](LICENSE) file for details.
-
-## Author
-
-Steven Coutts - CCIE 51771
-- Website: [stevec.couttsnet.com](https://stevec.couttsnet.com)
-- Bluesky: [@steven.couttsnet.com](https://bsky.app/profile/steven.couttsnet.com)
-- LinkedIn: [stevencoutts](https://www.linkedin.com/in/stevencoutts/)
-- GitHub: [stevencoutts](https://github.com/stevencoutts) 
+2. Open `
