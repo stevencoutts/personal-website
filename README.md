@@ -1,6 +1,6 @@
 # Personal Website
 
-A modern, responsive personal website for Steven Coutts (CCIE 51771), showcasing professional background, certifications, blog posts, and social presence. Built with HTML, CSS, and JavaScript, and served via Nginx with a Node.js backend for dynamic blog post fetching and API proxying. Easily deployable with Docker.
+A modern, responsive personal website for, showcasing professional background, certifications, blog posts, and social presence. Built with HTML, CSS, and JavaScript, and served via Nginx with a Node.js backend for dynamic blog post fetching and API proxying. Easily deployable with Docker.
 
 ---
 
