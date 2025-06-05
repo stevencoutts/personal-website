@@ -4,6 +4,9 @@ const path = require('path');
 const axios = require('axios');
 const { parseString } = require('xml2js');
 const fs = require('fs');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8083;
@@ -16,7 +19,7 @@ const CACHE_FILE = path.join(__dirname, 'blog-posts-cache.json');
 const CACHE_TTL = 3600000; // 1 hour in milliseconds
 
 // Middleware to serve static files
-app.use(express.static(path.join(__dirname, '../')));
+// app.use(express.static(path.join(__dirname, '../')));
 
 // API endpoint to fetch latest blog posts
 app.get('/api/posts', async (req, res) => {
@@ -121,12 +124,56 @@ app.get('/api/posts', async (req, res) => {
     }
 });
 
-// Catch-all route to serve index.html
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
+// Pinned GitHub Repos API
+app.get('/api/pinned', async (req, res) => {
+  try {
+    const query = `
+      {
+        user(login: "stevencoutts") {
+          pinnedItems(first: 6, types: [REPOSITORY]) {
+            nodes {
+              ... on Repository {
+                name
+                description
+                url
+                readme: object(expression: "HEAD:README.md") {
+                  ... on Blob {
+                    text
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+    const response = await axios.post(
+      'https://api.github.com/graphql',
+      { query },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+          'User-Agent': 'stevencoutts-personal-website'
+        }
+      }
+    );
+    const repos = response.data.data.user.pinnedItems.nodes.map(repo => ({
+      name: repo.name,
+      description: repo.description,
+      url: repo.url,
+      overview: repo.readme && repo.readme.text
+        ? (repo.readme.text.split('\n').find(line => line.trim() && !line.startsWith('#')) || '').slice(0, 200)
+        : ''
+    }));
+    res.json(repos);
+  } catch (error) {
+    console.error(error.response?.data || error.message);
+    res.status(500).json({ error: 'Failed to fetch pinned repositories' });
+  }
 });
 
-app.listen(PORT, () => {
+// Listen on all interfaces
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);
     console.log(`Website available at http://localhost:${PORT}`);
     console.log(`API available at http://localhost:${PORT}/api/posts`);
