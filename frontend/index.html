@@ -6,130 +6,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Steven Coutts - CCIE 51771, Network Engineer, and Technology Professional specializing in network design, security, and automation. Expert in enterprise infrastructure and cloud technologies.">
-    <meta name="keywords" content="Steven Coutts, CCIE, Network Engineer, Technology Professional, Network Design, Network Security, SDN, Automation, AWS, Docker, CI/CD">
+    <meta name="description" content="Steven Coutts - CCIE 51771, Network Engineer, and Technology Professional">
+    <meta name="keywords" content="Steven Coutts, CCIE, Network Engineer, Technology Professional">
     <meta name="author" content="Steven Coutts">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
     
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Steven Coutts - CCIE 51771 | Network Engineer & Technology Professional">
-    <meta property="og:description" content="Network Engineer and Technology Professional specializing in enterprise infrastructure, security, and automation. CCIE certified expert.">
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
+    <meta property="og:title" content="Steven Coutts - CCIE 51771">
+    <meta property="og:description" content="Network Engineer and Technology Professional">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://stevec.couttsnet.com">
-    <meta property="og:image" content="https://stevec.couttsnet.com/images/CCIE_Enterprise_med.png">
-    <meta property="og:site_name" content="Steven Coutts - Personal Website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Steven Coutts - CCIE 51771 | Network Engineer">
-    <meta name="twitter:description" content="Network Engineer and Technology Professional specializing in enterprise infrastructure, security, and automation.">
-    <meta name="twitter:image" content="https://stevec.couttsnet.com/images/CCIE_Enterprise_med.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     
-    <!-- Preload critical resources -->
+    <!-- Preload Critical Resources for Performance -->
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="images/CCIE_Enterprise_med.png" as="image">
-    
-    <title>Steven Coutts - CCIE 51771 | Network Engineer & Technology Professional</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <meta name="theme-color" content="#3b82f6">
     <link rel="preload" href="images/CCIE_Enterprise_med-dark.png" as="image">
+    
+    <title>Steven Coutts CCIE 51771</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Bluesky Embed Script - Loaded asynchronously -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" async></script>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Steven Coutts",
-        "url": "https://stevec.couttsnet.com",
-        "image": "https://stevec.couttsnet.com/images/CCIE_Enterprise_med.png",
-        "sameAs": [
-            "https://github.com/stevencoutts",
-            "https://linkedin.com/in/stevencoutts",
-            "https://bsky.app/profile/stevecoutts.bsky.social"
-        ],
-        "jobTitle": "Network Engineer",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Technology Professional"
-        },
-        "knowsAbout": [
-            "Network Design",
-            "Network Security",
-            "SDN",
-            "Automation",
-            "AWS",
-            "Docker",
-            "CI/CD",
-            "Infrastructure as Code"
-        ],
-        "hasCredential": {
-            "@type": "EducationalCredential",
-            "credentialCategory": "Professional Certification",
-            "name": "CCIE Enterprise Infrastructure",
-            "credentialNumber": "51771"
-        }
-    }
-    </script>
 </head>
 <body>
-    <!-- Theme Toggle Button -->
+    <!-- Theme Toggle Button for Dark/Light Mode -->
     <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
         🌓
     </button>
 
+    <!-- Main Page Container -->
     <div class="page-container">
         <div class="content-wrapper">
-            <header class="header">
+            <!-- Header Section -->
+            <div class="header">
                 <h1>Steven Coutts</h1>
-                <p class="subtitle">CCIE 51771 | Network Engineer & Technology Professional</p>
-            </header>
+            </div>
 
+            <!-- Main Content Row -->
             <div class="row">
+                <!-- Left Column - Certifications and Skills -->
                 <aside class="leftcolumn">
-                    <section class="card" itemscope itemtype="https://schema.org/Person">
+                    <!-- CCIE Badge and Certifications Card -->
+                    <section class="card">
                         <div class="ccie-badge">
-                            <img src="images/CCIE_Enterprise_med.png" alt="CCIE Certification Badge" width="200" height="200" itemprop="image">
+                            <img id="ccieBadge" src="images/CCIE_Enterprise_med.png" alt="CCIE Certification Badge" width="200" height="200">
                         </div>
                         <div class="certifications">
+                            <!-- Airdata Badge -->
                             <div class="certification-item airdata-badge">
-                                <a href='https://certificates.airdata.com/ILTNoG' target="_blank" rel="noopener noreferrer">
+                                <a href='https://certificates.airdata.com/ILTNoG' target="_blank">
                                     <img alt='Airdata UAV|Drone Safety Verified Badge' src='https://certificates.airdata.com/badge?i=ILTNoG&r=Jj98&t=5&m=1&size=1&c=0' style='width:171px;height:45px;border:0;image-rendering: optimizequality;image-rendering: smooth;'>
                                 </a>
                             </div>
+                            <!-- PGP Key -->
                             <div class="pgp-key">
                                 <a href="pgp-public-stevec-couttsnet-com.asc" target="_blank" class="pgp-link" download title="Download PGP Public Key">
                                     <img src="images/secure-email-icon.svg" alt="Secure Email PGP Key" class="pgp-icon">
                                 </a>
                             </div>
                         </div>
-                        <nav class="social-links" aria-label="Social media links">
-                            <a href="https://github.com/stevencoutts" target="_blank" rel="noopener noreferrer" class="social-link" itemprop="sameAs">
-                                <img src="images/github-icon.png" alt="GitHub Profile" class="social-icon">
-                                <span>GitHub</span>
-                            </a>
-                            <a href="https://linkedin.com/in/stevencoutts" target="_blank" rel="noopener noreferrer" class="social-link" itemprop="sameAs">
-                                <img src="images/linkedin-icon.jpg" alt="LinkedIn Profile" class="social-icon">
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="https://bsky.app/profile/stevecoutts.bsky.social" target="_blank" rel="noopener noreferrer" class="social-link" itemprop="sameAs">
-                                <img src="images/bluesky-icon.webp" alt="Bluesky Profile" class="social-icon">
-                                <span>Bluesky</span>
-                            </a>
-                        </nav>
                     </section>
 
-                    <section class="card">
+                    <!-- Skills Card -->
+                    <div class="card">
                         <h2>Skills & Expertise</h2>
                         <div class="skills-grid">
+                            <!-- Networking Skills -->
                             <div class="skill-category">
                                 <h3>Networking</h3>
                                 <ul>
@@ -139,6 +85,7 @@
                                     <li>SDN & Automation</li>
                                 </ul>
                             </div>
+                            <!-- Programming Skills -->
                             <div class="skill-category">
                                 <h3>Programming</h3>
                                 <ul>
@@ -148,6 +95,7 @@
                                     <li>Git</li>
                                 </ul>
                             </div>
+                            <!-- Cloud & DevOps Skills -->
                             <div class="skill-category">
                                 <h3>Cloud & DevOps</h3>
                                 <ul>
@@ -158,210 +106,266 @@
                                 </ul>
                             </div>
                         </div>
-                    </section>
+                    </div>
                 </aside>
 
-                <main class="rightcolumn">
-                    <section class="card">
-                        <h2>Recent Posts</h2>
-                        <div id="posts-container" aria-live="polite">
-                            <div class="loading">Loading posts...</div>
-                        </div>
-                    </section>
-
-                    <section class="card">
-                        <h2>Bluesky Feed</h2>
-                        <div class="bluesky-feed">
-                            <iframe src="https://bsky.app/profile/stevecoutts.bsky.social/embed" 
-                                    frameborder="0" 
-                                    scrolling="no" 
-                                    width="100%" 
-                                    height="600px" 
-                                    allowtransparency="true"
-                                    title="Bluesky Social Feed">
-                            </iframe>
-                            <div class="bluesky-fallback">
-                                <p>Unable to load Bluesky feed. Please visit my <a href="https://bsky.app/profile/stevecoutts.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky profile</a> directly.</p>
+                <!-- Middle Column - Bluesky Feed -->
+                <main class="middlecolumn">
+                    <article class="card">
+                        <h2>Bluesky <a href="https://bsky.app/profile/steven.couttsnet.com" aria-label="View Steven's Bluesky profile">@steven.couttsnet.com</a></h2>
+                        <div class="bsky-embed">
+                            <!-- Bluesky Embed Component -->
+                            <bsky-embed
+                                username="steven.couttsnet.com"
+                                limit="5"
+                                link-target="_blank"
+                                link-image="true"
+                                load-more="true"
+                            >
+                            </bsky-embed>
+                            <!-- Fallback Message for when Bluesky content fails to load -->
+                            <div id="bsky-fallback" style="display: none; padding: 15px; text-align: center;">
+                                <p>Bluesky content couldn't be loaded. Please visit my <a href="https://bsky.app/profile/steven.couttsnet.com" target="_blank">Bluesky profile</a> directly.</p>
                             </div>
                         </div>
-                    </section>
+                    </article>
                 </main>
+
+                <!-- Right Column - Recent Posts and Social Links -->
+                <aside class="rightcolumn">
+                    <!-- Recent Blog Posts Card -->
+                    <section class="card">
+                        <h2>Recent Posts</h2>
+                        <nav aria-label="Recent blog posts">
+                            <ul id="recent-posts">
+                                <li class="loading">Loading posts...</li>
+                            </ul>
+                        </nav>
+                    </section>
+
+                    <!-- GitHub Projects Card -->
+                    <section class="card" id="pinned-projects-card">
+                        <h2>GitHub Projects</h2>
+                        <ul id="pinned-projects">
+                            <li class="loading">Loading pinned projects...</li>
+                        </ul>
+                    </section>
+
+                    <!-- Social Links Card -->
+                    <section class="card">
+                        <h2>Connect</h2>
+                        <div class="social-links">
+                            <a href="https://bsky.app/profile/steven.couttsnet.com" aria-label="Follow on Bluesky">
+                                <img src="images/bluesky-icon.webp" alt="Bluesky">
+                                <span>Bluesky</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/stevencoutts/" aria-label="Connect on LinkedIn">
+                                <img src="images/linkedin-icon.jpg" alt="LinkedIn">
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/stevencoutts" aria-label="Follow on GitHub">
+                                <img src="images/github-icon.png" alt="GitHub">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </section>
+                </aside>
             </div>
         </div>
 
-        <footer class="footer-wrapper">
+        <!-- Footer Section -->
+        <div class="footer-wrapper">
             <footer class="footer">
-                <p>© 2025 Steven Coutts. All rights reserved. | This project is licensed under <a href="https://unlicense.org" target="_blank" rel="noopener noreferrer">The Unlicense</a> | Made with ❤️ using modern web technologies</p>
+                <p>© 2025 Steven Coutts. All rights reserved. | This project is licensed under <a href="https://unlicense.org" target="_blank">The Unlicense</a> | Made with ❤️ using modern web technologies</p>
             </footer>
-        </footer>
+        </div>
     </div>
 
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        
-        // Check for saved theme preference or use system preference
-        const currentTheme = localStorage.getItem('theme') || 
-            (prefersDarkScheme.matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌓';
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme Toggle Functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            const badgeImg = document.getElementById('ccieBadge');
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌓';
-        });
+            // Initialize theme based on saved preference or system preference
+            const currentTheme = localStorage.getItem('theme') || 
+                (prefersDarkScheme.matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌓';
 
-        // Fetch and display blog posts dynamically
-        async function fetchAndDisplayBlogPosts() {
-            const postsList = document.getElementById('recent-posts');
-            
-            // Define fallback posts in case the fetch fails
-            const fallbackPosts = [
-                {
-                    title: 'Creating a Nginx Docker Container',
-                    link: 'https://blog.couttsnet.com/creating-a-nginx-docker-container/',
-                    date: 'Dec 9, 2024'
-                },
-                {
-                    title: 'Getting Started with Docker and Kubernetes for Beginners',
-                    link: 'https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/',
-                    date: 'Dec 9, 2024'
-                },
-                {
-                    title: 'Getting Started With Kubernetes',
-                    link: 'https://blog.couttsnet.com/getting-started-with-kubernetes/',
-                    date: 'Dec 8, 2024'
-                },
-                {
-                    title: 'What is Microsoft Azure?',
-                    link: 'https://blog.couttsnet.com/what-is-microsoft-azure/',
-                    date: 'Mar 13, 2024'
-                },
-                {
-                    title: 'Enable Wired 802.1x – Group Policy',
-                    link: 'https://blog.couttsnet.com/enable-wired-802-1x-group-policy/',
-                    date: 'Mar 28, 2022'
+            function updateBadgeForTheme(theme) {
+                if (badgeImg) {
+                    badgeImg.src = theme === 'dark'
+                        ? 'images/CCIE_Enterprise_med-dark.png'
+                        : 'images/CCIE_Enterprise_med.png';
                 }
-            ];
-            
-            try {
-                // Use a public RSS to JSON converter service that provides CORS headers
-                const rssFeedUrl = 'https://blog.couttsnet.com/feed/';
-                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`;
-                
-                const response = await fetch(proxyUrl);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                
-                if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                    throw new Error('No posts found in RSS feed');
-                }
-                
-                // Extract post information (limit to 5 posts)
-                const posts = data.items.slice(0, 5).map(item => {
-                    const pubDate = new Date(item.pubDate);
-                    return {
-                        title: item.title,
-                        link: item.link,
-                        date: pubDate.toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                        })
-                    };
-                });
-                
-                // Display the posts
-                displayPosts(posts);
-            } catch (error) {
-                // Use fallback posts if fetch fails
-                displayPosts(fallbackPosts);
             }
-        }
-        
-        // Display posts in the DOM
-        function displayPosts(posts) {
-            const postsList = document.getElementById('recent-posts');
-            
-            // Clear the loading message
-            postsList.innerHTML = '';
-            
-            // Add each post to the list
-            posts.forEach(post => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <a href="${post.link}" target="_blank" rel="noopener noreferrer">
-                        ${post.title}
-                        <span class="post-date">${post.date}</span>
-                    </a>
-                `;
-                postsList.appendChild(li);
+            // On page load
+            updateBadgeForTheme(currentTheme);
+
+            // Theme toggle event listener
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌓';
+                updateBadgeForTheme(newTheme);
             });
-        }
 
-        // Call the function when the page loads
-        document.addEventListener('DOMContentLoaded', fetchAndDisplayBlogPosts);
-        
-        // Also set up a refresh interval (every 30 minutes)
-        setInterval(fetchAndDisplayBlogPosts, 30 * 60 * 1000);
-
-        // Register service worker for offline functionality
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed: ', err);
+            // Blog Posts Fetching and Display Functionality
+            async function fetchAndDisplayBlogPosts() {
+                const postsList = document.getElementById('recent-posts');
+                const fallbackPosts = [
+                    { title: 'Creating a Nginx Docker Container', link: 'https://blog.couttsnet.com/creating-a-nginx-docker-container/', date: 'Dec 9, 2024' },
+                    { title: 'Getting Started with Docker and Kubernetes for Beginners', link: 'https://blog.couttsnet.com/getting-started-with-docker-and-kubernetes-for-beginners/', date: 'Dec 9, 2024' },
+                    { title: 'Getting Started With Kubernetes', link: 'https://blog.couttsnet.com/getting-started-with-kubernetes/', date: 'Dec 8, 2024' },
+                    { title: 'What is Microsoft Azure?', link: 'https://blog.couttsnet.com/what-is-microsoft-azure/', date: 'Mar 13, 2024' },
+                    { title: 'Enable Wired 802.1x – Group Policy', link: 'https://blog.couttsnet.com/enable-wired-802-1x-group-policy/', date: 'Mar 28, 2022' }
+                ];
+                try {
+                    const rssFeedUrl = 'https://blog.couttsnet.com/feed/';
+                    const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`;
+                    const response = await fetch(proxyUrl);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    if (data.status !== 'ok' || !data.items || data.items.length === 0) throw new Error('No posts found in RSS feed');
+                    const posts = data.items.slice(0, 5).map(item => {
+                        const pubDate = new Date(item.pubDate);
+                        return {
+                            title: item.title,
+                            link: item.link,
+                            date: pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+                        };
                     });
-            });
-        }
+                    displayPosts(posts);
+                } catch (error) {
+                    displayPosts(fallbackPosts);
+                }
+            }
+            function displayPosts(posts) {
+                const postsList = document.getElementById('recent-posts');
+                postsList.innerHTML = '';
+                posts.forEach(post => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <a href="${post.link}" target="_blank" rel="noopener noreferrer">
+                            ${post.title}
+                            <span class="post-date">${post.date}</span>
+                        </a>
+                    `;
+                    postsList.appendChild(li);
+                });
+            }
+            fetchAndDisplayBlogPosts();
+            setInterval(fetchAndDisplayBlogPosts, 30 * 60 * 1000);
 
-        // Check if Bluesky content loads properly
-        document.addEventListener('DOMContentLoaded', () => {
+            // Bluesky Embed Content Loading Check
             const bskyEmbed = document.querySelector('bsky-embed');
             const bskyFallback = document.getElementById('bsky-fallback');
-            
-            // More reliable check using MutationObserver to detect changes to the embed
             let hasContent = false;
-            
-            // Watch for changes in the document that might indicate the embed loaded
-            const observer = new MutationObserver((mutations) => {
-                // Check if there are any visible feed posts in the embed
-                const bskyContainer = document.querySelector('.bsky-embed');
-                if (bskyContainer && bskyContainer.querySelector('iframe') && 
-                    !bskyContainer.querySelector('iframe').classList.contains('loading')) {
+            function checkForContent() {
+                if (!bskyEmbed) return false;
+                if (bskyEmbed.children.length > 0) {
+                    for (const child of bskyEmbed.children) {
+                        if (child.offsetHeight > 0 && child.offsetWidth > 0) return true;
+                    }
+                }
+                if (bskyEmbed.shadowRoot) {
+                    const shadowChildren = bskyEmbed.shadowRoot.children;
+                    for (const child of shadowChildren) {
+                        if (child.offsetHeight > 0 && child.offsetWidth > 0) return true;
+                    }
+                    const posts = bskyEmbed.shadowRoot.querySelectorAll('article, .post, .feed, .bsky-feed');
+                    for (const post of posts) {
+                        if (post.offsetHeight > 0 && post.offsetWidth > 0) return true;
+                    }
+                }
+                const container = document.querySelector('.bsky-embed');
+                if (container && container.children.length > 1) {
+                    for (const child of container.children) {
+                        if (child !== bskyFallback && child.offsetHeight > 0 && child.offsetWidth > 0) return true;
+                    }
+                }
+                return false;
+            }
+            const observer = new MutationObserver(() => {
+                if (checkForContent()) {
                     hasContent = true;
+                    bskyFallback.style.display = 'none';
+                    observer.disconnect();
                 }
             });
-            
-            // Start observing changes to the document
-            observer.observe(document.body, { 
-                childList: true, 
-                subtree: true,
-                attributes: true
-            });
-            
-            // If no content after timeout, show fallback
+            if (bskyEmbed) {
+                observer.observe(bskyEmbed, { childList: true, subtree: true, attributes: true, characterData: true });
+            }
+            const container = document.querySelector('.bsky-embed');
+            if (container) {
+                observer.observe(container, { childList: true, subtree: true, attributes: true, characterData: true });
+            }
+            if (checkForContent()) {
+                hasContent = true;
+                bskyFallback.style.display = 'none';
+            }
+            const checkInterval = setInterval(() => {
+                if (checkForContent()) {
+                    hasContent = true;
+                    bskyFallback.style.display = 'none';
+                    clearInterval(checkInterval);
+                    observer.disconnect();
+                }
+            }, 1000);
             setTimeout(() => {
-                // Stop observing
                 observer.disconnect();
-                
-                // If no content was detected, show fallback
+                clearInterval(checkInterval);
                 if (!hasContent) {
                     bskyFallback.style.display = 'block';
                 }
-            }, 8000); // Give more time to load - 8 seconds
+            }, 8000);
+
+            // Fetch and display pinned GitHub projects
+            async function fetchPinnedProjects() {
+                const projectsList = document.getElementById('pinned-projects');
+                projectsList.innerHTML = '<li class="loading">Loading pinned projects...</li>';
+                try {
+                    const res = await fetch('/api/pinned');
+                    const repos = await res.json();
+                    if (!Array.isArray(repos) || repos.length === 0) {
+                        projectsList.innerHTML = '<li class="error">No pinned projects found.</li>';
+                        return;
+                    }
+                    projectsList.innerHTML = '';
+                    repos.forEach(project => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <a href="${project.url}" target="_blank" rel="noopener noreferrer">
+                              <strong>${project.name}</strong>
+                            </a>
+                            <div class="project-desc">${project.description || ''}</div>
+                            <div class="project-overview">${project.overview || ''}</div>
+                        `;
+                        projectsList.appendChild(li);
+                    });
+                } catch (error) {
+                    projectsList.innerHTML = '<li class="error">Unable to load pinned projects.</li>';
+                }
+            }
+            fetchPinnedProjects();
+            setInterval(fetchPinnedProjects, 30 * 60 * 1000);
+
+            // Service Worker Registration for PWA functionality
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js')
+                        .then(registration => {
+                            console.log('ServiceWorker registration successful');
+                        })
+                        .catch(err => {
+                            console.log('ServiceWorker registration failed: ', err);
+                        });
+                });
+            }
         });
     </script>
 </body>

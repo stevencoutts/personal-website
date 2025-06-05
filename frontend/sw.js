@@ -1,13 +1,13 @@
 const CACHE_NAME = 'personal-website-v1';
 const urlsToCache = [
     '/',
-    '/website.html',
-    '/styles.css',
-    '/images/CCIE_Enterprise_med.gif',
-    '/images/pgp-desktop-logo.avif',
-    '/images/bluesky-icon.webp',
-    '/images/linkedin-icon.jpg',
-    '/images/github-icon.png'
+    'css/styles.css',
+    'images/CCIE_Enterprise_med.png',
+    'images/CCIE_Enterprise_med-dark.png',
+    'images/pgp-desktop-logo.avif',
+    'images/bluesky-icon.webp',
+    'images/linkedin-icon.jpg',
+    'images/github-icon.png'
 ];
 
 // Install service worker
