@@ -11,6 +11,7 @@ A modern, responsive personal website for, showcasing professional background, c
 - **Dynamic Content**:
   - Real-time Bluesky feed integration.
   - Recent blog posts fetched from RSS.
+  - Dynamic GitHub Projects section with pinned repositories and overviews.
   - Fallback content for external service failures.
 - **Performance**:
   - Resource preloading.
@@ -152,6 +153,16 @@ docker run -d -p 8084:8083 personal-website-backend
 
 ---
 
+## Caching Policy
+
+- **Static assets** (images, CSS, JS, fonts): Cached by browsers for **1 day** (was previously 1 year).
+- **HTML files:** Cached for 1 hour.
+- **API responses:** Not cached (no-store, no-cache, must-revalidate).
+
+This ensures users always get fresh content and updates are reflected quickly.
+
+---
+
 ## License
 
 This project is licensed under [The Unlicense](https://unlicense.org).
@@ -165,3 +176,19 @@ This project is licensed under [The Unlicense](https://unlicense.org).
 - Bluesky: [@steven.couttsnet.com](https://bsky.app/profile/steven.couttsnet.com)  
 - LinkedIn: [stevencoutts](https://www.linkedin.com/in/stevencoutts/)  
 - GitHub: [stevencoutts](https://github.com/stevencoutts)  
+
+## GitHub Token Setup
+
+To enable the backend to fetch your pinned GitHub repositories, you need to create a GitHub personal access token and add it to a `backend/.env` file:
+
+1. Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens).
+2. Click "Generate new token" (classic).
+3. Give it a name, set an expiration, and select the `public_repo` scope.
+4. Copy the generated token.
+5. In your `backend/` directory, create a file named `.env` with the following content:
+   ```env
+   GITHUB_TOKEN=your_github_token_here
+   ```
+6. The Docker Compose setup will automatically use this file to provide the token to the backend container.
+
+**Note:** Never commit your token or `backend/.env` to version control.
