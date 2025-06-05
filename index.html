@@ -142,6 +142,14 @@
                         </nav>
                     </section>
 
+                    <!-- GitHub Projects Card -->
+                    <section class="card" id="pinned-projects-card">
+                        <h2>GitHub Projects</h2>
+                        <ul id="pinned-projects">
+                            <li class="loading">Loading pinned projects...</li>
+                        </ul>
+                    </section>
+
                     <!-- Social Links Card -->
                     <section class="card">
                         <h2>Connect</h2>
@@ -408,6 +416,44 @@
                 }
             }, 8000);
         });
+
+        // Fetch and display pinned GitHub projects
+        async function fetchPinnedProjects() {
+            const projectsList = document.getElementById('pinned-projects');
+            projectsList.innerHTML = '<li class="loading">Loading pinned projects...</li>';
+
+            try {
+                // Fetch pinned repos from backend
+                const res = await fetch('/api/pinned');
+                const repos = await res.json();
+
+                if (!Array.isArray(repos) || repos.length === 0) {
+                    projectsList.innerHTML = '<li class="error">No pinned projects found.</li>';
+                    return;
+                }
+
+                // Render the list
+                projectsList.innerHTML = '';
+                repos.forEach(project => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <a href="${project.url}" target="_blank" rel="noopener noreferrer">
+                          <strong>${project.name}</strong>
+                        </a>
+                        <div class="project-desc">${project.description || ''}</div>
+                        <div class="project-overview">${project.overview || ''}</div>
+                    `;
+                    projectsList.appendChild(li);
+                });
+            } catch (error) {
+                projectsList.innerHTML = '<li class="error">Unable to load pinned projects.</li>';
+            }
+        }
+
+        // Initialize pinned projects when the page loads
+        document.addEventListener('DOMContentLoaded', fetchPinnedProjects);
+        // Refresh pinned projects every 30 minutes
+        setInterval(fetchPinnedProjects, 30 * 60 * 1000);
     </script>
 </body>
 </html>
