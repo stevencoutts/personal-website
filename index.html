@@ -309,48 +309,70 @@
             const bskyEmbed = document.querySelector('bsky-embed');
             const bskyFallback = document.getElementById('bsky-fallback');
             let hasContent = false;
-            
-            // Function to check if Bluesky content has loaded
+
+            // Helper to check if any visible post is present in the embed or its shadow DOM
             function checkForContent() {
-                // Check direct children of the embed element
-                if (bskyEmbed && bskyEmbed.children.length > 0) {
-                    return true;
-                }
-                
-                // Check shadow DOM for content
-                if (bskyEmbed && bskyEmbed.shadowRoot) {
-                    const shadowChildren = bskyEmbed.shadowRoot.children;
-                    if (shadowChildren && shadowChildren.length > 0) {
-                        return true;
+                if (!bskyEmbed) return false;
+
+                // Check direct children
+                if (bskyEmbed.children.length > 0) {
+                    // If any child is visible
+                    for (const child of bskyEmbed.children) {
+                        if (child.offsetHeight > 0 && child.offsetWidth > 0) {
+                            return true;
+                        }
                     }
                 }
-                
+
+                // Check shadow DOM for visible content
+                if (bskyEmbed.shadowRoot) {
+                    const shadowChildren = bskyEmbed.shadowRoot.children;
+                    for (const child of shadowChildren) {
+                        if (child.offsetHeight > 0 && child.offsetWidth > 0) {
+                            return true;
+                        }
+                    }
+                    // Also check for any <article> or post-like elements
+                    const posts = bskyEmbed.shadowRoot.querySelectorAll('article, .post, .feed, .bsky-feed');
+                    for (const post of posts) {
+                        if (post.offsetHeight > 0 && post.offsetWidth > 0) {
+                            return true;
+                        }
+                    }
+                }
+
                 // Check parent container for additional content
                 const container = document.querySelector('.bsky-embed');
                 if (container && container.children.length > 1) { // > 1 because one is the fallback div
-                    return true;
+                    // If any child except the fallback is visible
+                    for (const child of container.children) {
+                        if (child !== bskyFallback && child.offsetHeight > 0 && child.offsetWidth > 0) {
+                            return true;
+                        }
+                    }
                 }
-                
+
                 return false;
             }
-            
+
             // Set up MutationObserver to watch for content changes
-            const observer = new MutationObserver((mutations) => {
+            const observer = new MutationObserver(() => {
                 if (checkForContent()) {
                     hasContent = true;
                     bskyFallback.style.display = 'none';
                     observer.disconnect();
                 }
             });
-            
+
             // Observe both the embed element and its container
-            observer.observe(bskyEmbed, { 
-                childList: true, 
-                subtree: true,
-                attributes: true,
-                characterData: true
-            });
-            
+            if (bskyEmbed) {
+                observer.observe(bskyEmbed, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    characterData: true
+                });
+            }
             const container = document.querySelector('.bsky-embed');
             if (container) {
                 observer.observe(container, {
@@ -360,22 +382,23 @@
                     characterData: true
                 });
             }
-            
+
             // Initial content check
             if (checkForContent()) {
                 hasContent = true;
                 bskyFallback.style.display = 'none';
             }
-            
+
             // Periodic content check as backup
             const checkInterval = setInterval(() => {
                 if (checkForContent()) {
                     hasContent = true;
                     bskyFallback.style.display = 'none';
                     clearInterval(checkInterval);
+                    observer.disconnect();
                 }
             }, 1000);
-            
+
             // Show fallback message if no content after timeout
             setTimeout(() => {
                 observer.disconnect();
