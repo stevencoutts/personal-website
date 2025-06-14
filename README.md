@@ -42,7 +42,7 @@ A modern, responsive personal website for, showcasing professional background, c
 │   ├── server.js
 │   ├── package.json
 │   └── ...
-├── frontend/                 # (Optional) Alternative frontend structure
+├── frontend/                 # Frontend structure
 │   ├── index.html
 │   ├── css/
 │   ├── images/
