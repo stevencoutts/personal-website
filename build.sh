@@ -13,11 +13,11 @@ echo -e "${YELLOW}Starting Docker build process...${NC}"
 
 # Stop and remove any existing containers and networks
 echo -e "${YELLOW}Stopping and removing existing containers...${NC}"
-docker-compose down 2>/dev/null || true
+docker compose down 2>/dev/null || true
 
 # Build and start the containers
 echo -e "${YELLOW}Building and starting containers...${NC}"
-docker-compose up --build -d
+docker compose up --build -d
 
 # Check if containers started successfully
 if [ $? -eq 0 ]; then
