@@ -8,8 +8,16 @@
 <head>
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <!-- Preload only the main stylesheet and the above-the-fold CCIE badge image -->
+    <link rel="preload" href="css/styles.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="images/CCIE_Enterprise_med.webp" as="image" type="image/webp">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X78F4RYRKP"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-X78F4RYRKP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -20,25 +28,16 @@
     <meta name="description" content="Steven Coutts - CCIE 51771, Network Engineer, and Technology Professional">
     <meta name="keywords" content="Steven Coutts, CCIE, Network Engineer, Technology Professional">
     <meta name="author" content="Steven Coutts">
-    
+    <!-- Updated CSP to allow Bluesky embed -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; script-src 'self' https://cdn.jsdelivr.net https://bsky.social 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https://cdn.jsdelivr.net https://bsky.social https://bsky.network wss://bsky.network https://*.bsky.app https://*.bsky.social; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:;">
     <!-- Open Graph Meta Tags for Social Media Sharing -->
     <meta property="og:title" content="Steven Coutts - CCIE 51771">
     <meta property="og:description" content="Network Engineer and Technology Professional">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://stevec.couttsnet.com">
-    
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    
-    <!-- Preload Critical Resources for Performance -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="images/CCIE_Enterprise_med.png" as="image">
-    <link rel="preload" href="images/CCIE_Enterprise_med-dark.png" as="image">
-    
-    <title>Steven Coutts CCIE 51771</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Bluesky Embed Script - Loaded asynchronously -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" async></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" defer></script>
 </head>
 <body>
     <!-- Theme Toggle Button for Dark/Light Mode -->
@@ -61,7 +60,10 @@
                     <!-- CCIE Badge and Certifications Card -->
                     <section class="card">
                         <div class="ccie-badge">
-                            <img id="ccieBadge" src="images/CCIE_Enterprise_med.png" alt="CCIE Certification Badge" width="200" height="200">
+                            <picture>
+                                <source srcset="images/CCIE_Enterprise_med.webp" type="image/webp">
+                                <img id="ccieBadge" src="images/CCIE_Enterprise_med.png" alt="CCIE Certification Badge" width="200" height="200" loading="lazy">
+                            </picture>
                         </div>
                         <div class="certifications">
                             <!-- Airdata Badge -->
@@ -164,15 +166,21 @@
                         <h2>Connect</h2>
                         <div class="social-links">
                             <a href="https://bsky.app/profile/steven.couttsnet.com" aria-label="Follow on Bluesky">
-                                <img src="images/bluesky-icon.webp" alt="Bluesky">
+                                <img src="images/bluesky-icon.webp" alt="Bluesky" width="40" height="40" loading="lazy">
                                 <span>Bluesky</span>
                             </a>
                             <a href="https://www.linkedin.com/in/stevencoutts/" aria-label="Connect on LinkedIn">
-                                <img src="images/linkedin-icon.jpg" alt="LinkedIn">
+                                <picture>
+                                    <source srcset="images/linkedin-icon.webp" type="image/webp">
+                                    <img src="images/linkedin-icon.jpg" alt="LinkedIn" width="40" height="40" loading="lazy">
+                                </picture>
                                 <span>LinkedIn</span>
                             </a>
                             <a href="https://github.com/stevencoutts" aria-label="Follow on GitHub">
-                                <img src="images/github-icon.png" alt="GitHub">
+                                <picture>
+                                    <source srcset="images/github-icon.webp" type="image/webp">
+                                    <img src="images/github-icon.png" alt="GitHub" width="40" height="40" loading="lazy">
+                                </picture>
                                 <span>GitHub</span>
                             </a>
                         </div>
@@ -204,9 +212,13 @@
 
             function updateBadgeForTheme(theme) {
                 if (badgeImg) {
-                    badgeImg.src = theme === 'dark'
-                        ? 'images/CCIE_Enterprise_med-dark.png'
-                        : 'images/CCIE_Enterprise_med.png';
+                    if (theme === 'dark') {
+                        badgeImg.src = 'images/CCIE_Enterprise_med-dark.png';
+                        badgeImg.srcset = 'images/CCIE_Enterprise_med-dark.webp 1x, images/CCIE_Enterprise_med-dark.png 2x';
+                    } else {
+                        badgeImg.src = 'images/CCIE_Enterprise_med.png';
+                        badgeImg.srcset = 'images/CCIE_Enterprise_med.webp 1x, images/CCIE_Enterprise_med.png 2x';
+                    }
                 }
             }
             // On page load

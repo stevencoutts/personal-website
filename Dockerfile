@@ -1,5 +1,5 @@
 # Use the official Nginx image as the base
-FROM nginx:alpine
+FROM fholzer/nginx-brotli:latest
 
 # Copy the website files to Nginx's default serving directory
 COPY frontend/index.html /usr/share/nginx/html/index.html
@@ -13,7 +13,4 @@ COPY frontend/pgp-public-stevec-couttsnet-com.asc /usr/share/nginx/html/pgp-publ
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 # Expose port
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"] 
+EXPOSE 80 
