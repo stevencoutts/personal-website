@@ -33,10 +33,15 @@ jobs:
     - name: Run Lighthouse CI
       uses: treosh/lighthouse-ci-action@v9
       with:
-        uploadArtifacts: true
-        artifactName: lighthouse-results
+        uploadArtifacts: false
         temporaryPublicStorage: false
         configPath: './lighthouserc.js'
+
+    - name: Upload Lighthouse Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: lhciresults
+        path: lighthouse-results/
     
     - name: Check HTML validity
       run: |
