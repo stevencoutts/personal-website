@@ -5,6 +5,7 @@ const axios = require('axios');
 const { parseString } = require('xml2js');
 const fs = require('fs');
 const dotenv = require('dotenv');
+const rateLimit = require('express-rate-limit');
 
 dotenv.config();
 
@@ -13,6 +14,16 @@ const PORT = process.env.PORT || 8083;
 
 // Enable CORS for all routes
 app.use(cors());
+
+// Rate limiting for all /api/ endpoints
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  message: { error: "Too many requests, please try again later." }
+});
+app.use('/api/', apiLimiter);
 
 // Cache configuration
 const CACHE_FILE = path.join(__dirname, 'blog-posts-cache.json');
