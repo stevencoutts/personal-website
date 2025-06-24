@@ -41,7 +41,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: lhciresults
-        path: lighthouse-results/
+        path: .lighthouseci/
     
     - name: Check HTML validity
       run: |
