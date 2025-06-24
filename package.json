@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0",
-    "build": "mkdir -p dist && cp -r index.html styles.css images dist/",
+    "build": "mkdir -p dist && cp frontend/index.html dist/ && cp -r frontend/css dist/ && cp -r frontend/images dist/ && cp frontend/sw.js dist/ && cp frontend/robots.txt dist/ && cp frontend/sitemap.xml dist/",
     "serve": "npx http-server dist -p 8085",
     "validate": "html-validate index.html && css-validator styles.css",
     "lighthouse": "lighthouse http://localhost:8085 --view"
